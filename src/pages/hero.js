@@ -63,7 +63,7 @@ const Hero = () => {
 			<div
 				className="w-screen overflow-hidden h-[50vh] md:h-full bg-cover bg-center mt-8 -mb-12"
 				style={{
-					backgroundImage: "url(../../assets/images/images-8.jpg)",
+					backgroundImage: "url(../../assets/images/beagleHero.jpeg)",
 				}}
 				id="hero"
 			>
