@@ -6,7 +6,7 @@ import { faPaw } from "@fortawesome/free-solid-svg-icons";
 const Hero = () => {
 	const renderText = () => {
 		return (
-			<div className="lg:ml-8 flex flex-col justify-center items-center md:justify-start md:items-start md:rounded-md w-full md:w-auto py-4 md:p-6 bg-colorOne md:bg-opacity-70">
+			<div className="lg:ml-8 flex flex-col justify-center items-center md:justify-start md:items-start md:rounded-3xl w-full md:w-auto py-4 md:p-6 bg-colorOne md:bg-opacity-70">
 				<motion.p
 					className=""
 					initial={{ opacity: 0 }}
@@ -34,7 +34,8 @@ const Hero = () => {
 					transition={{ duration: 1, delay: 0.5 }}
 				>
 					<span className="block font-fredoka text-xl md:text-2xl m-1 text-colorFour font-medium">
-						Dog Walking & Home Boarding Service
+						Dog Walking <br className="md:hidden" /> &
+						<br className="md:hidden" /> Home Boarding Service
 					</span>
 				</motion.p>
 			</div>

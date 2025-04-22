@@ -6,6 +6,7 @@ import Contact from "./pages/contact";
 import Hero from "./pages/hero";
 import IconCloud from "./components/iconCloud";
 import About from "./pages/about";
+import ServiceOverview from "./pages/serviceOverview";
 
 export default function App() {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +19,7 @@ export default function App() {
 				<Hero />
 				<IconCloud />
 				<About />
+				<ServiceOverview />
 				<Contact />
 			</div>
 		</div>
