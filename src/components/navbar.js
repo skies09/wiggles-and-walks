@@ -33,6 +33,18 @@ const Navbar = ({ menuOpen, setMenuOpen }) => {
 						Services
 					</a>
 					<a
+						href="#gallery"
+						className="font-fredoka font-medium text-colorTwo hover:text-colorFour hover:underline"
+					>
+						Gallery
+					</a>
+					<a
+						href="#pricing"
+						className="font-fredoka font-medium text-colorTwo hover:text-colorFour hover:underline"
+					>
+						Pricing
+					</a>
+					<a
 						href="#contact"
 						className="font-fredoka font-medium text-colorTwo hover:text-colorFour hover:underline"
 					>

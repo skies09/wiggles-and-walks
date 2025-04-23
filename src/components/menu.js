@@ -3,9 +3,11 @@ import { motion, useAnimation } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faBriefcase,
+	faDog,
 	faEnvelope,
 	faUser,
+	faImages,
+	faTags,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
@@ -49,7 +51,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 						className="flex justify-center items-center"
 					>
 						<FontAwesomeIcon
-							icon={faBriefcase}
+							icon={faDog}
 							size="lg"
 							className="text-colorTwo hover:text-colorFour hover:underline"
 						/>
@@ -58,7 +60,36 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 						</span>
 					</a>
 				</li>
-
+				<li className="mt-3" onClick={() => setMenuOpen(false)}>
+					<a
+						href="#gallery"
+						className="flex justify-center items-center"
+					>
+						<FontAwesomeIcon
+							icon={faImages}
+							size="lg"
+							className="text-colorTwo hover:text-colorFour hover:underline"
+						/>
+						<span className="font-fredoka font-medium ml-4 text-colorTwo hover:text-colorFour hover:underline text-xl">
+							Gallery
+						</span>
+					</a>
+				</li>
+				<li className="mt-3" onClick={() => setMenuOpen(false)}>
+					<a
+						href="#pricing"
+						className="flex justify-center items-center"
+					>
+						<FontAwesomeIcon
+							icon={faTags}
+							size="lg"
+							className="text-colorTwo hover:text-colorFour hover:underline"
+						/>
+						<span className="font-fredoka font-medium ml-4 text-colorTwo hover:text-colorFour hover:underline text-xl">
+							Pricing
+						</span>
+					</a>
+				</li>
 				<li className="mt-3" onClick={() => setMenuOpen(false)}>
 					<a
 						href="#contact"

@@ -6,7 +6,13 @@ import Contact from "./pages/contact";
 import Hero from "./pages/hero";
 import IconCloud from "./components/iconCloud";
 import About from "./pages/about";
-import ServiceOverview from "./pages/serviceOverview";
+import Reviews from "./pages/reviews";
+import Faqs from "./pages/faqs";
+import Meet from "./pages/meet";
+import Services from "./pages/services";
+import Areas from "./pages/areas";
+import Pricing from "./pages/pricing";
+import Gallery from "./pages/gallery";
 
 export default function App() {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -19,7 +25,13 @@ export default function App() {
 				<Hero />
 				<IconCloud />
 				<About />
-				<ServiceOverview />
+				<Services />
+				<Meet />
+				<Reviews />
+				<Gallery />
+				<Areas />
+				<Pricing />
+				<Faqs />
 				<Contact />
 			</div>
 		</div>

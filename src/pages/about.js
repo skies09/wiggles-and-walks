@@ -17,7 +17,7 @@ const About = () => {
 				className="w-full md:w-1/2 bg-colorOne flex justify-center items-center p-8"
 			>
 				<img
-					src="../../assets/images/beagleAbout.jpeg"
+					src="../../assets/images/beagleCuddles.jpeg"
 					alt="About Us"
 					className="rounded-2xl w-auto shadow-[20px_20px_20px_rgba(0,0,0,0.25),6px_6px_6px_rgba(0,0,0,0.22)]"
 				/>
@@ -36,11 +36,13 @@ const About = () => {
 					</span>
 				</p>
 				<p className="lg:text-lg text-colorFour font-semibold font-comforta lg:pr-10">
-					I understand that your dog is more than just a pet—they're
-					part of the family. That's why I treat every dog with the
-					same love, care, and attention that I give to my own.
-					Whether it's a walk, playtime, or simply a bit of TLC, your
-					dog will receive the best care possible while in our hands.
+					We totally get it, your dog isn’t just a pet, they’re
+					full-blown family (and probably the favorite, let’s be
+					honest). That’s why we treat every pup like one of my own,
+					with plenty of love and belly rubs. Whether we’re out for a
+					sniff-filled stroll, having a zoomie session, or just
+					soaking up some cuddle time, your dog will be showered with
+					the best care and attention every step of the way.
 				</p>
 			</motion.div>
 		</section>
