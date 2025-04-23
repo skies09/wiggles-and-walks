@@ -14,11 +14,11 @@ const faqs = [
 	},
 	{
 		question: "What should I pack for home boarding?",
-		answer: "Please just bring your dog’s food, any meds they’re on, their favorite toy, and their bed or blanket if you want them to feel extra cozy (but don’t worry—there are plenty of comfy beds here to choose from!). And if you happen to forget something, no problem at all, I’ve got home-cooked dog food on hand, so your pup will always be well-fed and happy!",
+		answer: "Please just bring your dog’s food, any meds they’re on, their favorite toy, and their bed or blanket if you want them to feel extra cozy (but don’t worry, there are plenty of comfy beds here to choose from!). And if you happen to forget something, no problem at all, I’ve got home-cooked dog food on hand, so your pup will always be well-fed and happy!",
 	},
 	{
 		question: "Will other dogs be staying when my dog is boarding?",
-		answer: "Nope! Your dog gets the VIP treatment—no other pups will be staying while yours is here. It's all about one-on-one time, comfy vibes, and lots of attention! And don’t worry, your dog will never be left unattended. I’m always there to keep them company and make sure they feel safe and loved.",
+		answer: "Nope! Your dog gets the VIP treatment. No other pups will be staying while yours is here. It's all about one-on-one time, comfy vibes, and lots of attention! And don’t worry, your dog will never be left unattended. I’m always there to keep them company and make sure they feel safe and loved.",
 	},
 	{
 		question: "Are you insured and certified?",
