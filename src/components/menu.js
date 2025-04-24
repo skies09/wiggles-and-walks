@@ -47,7 +47,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 				</li>
 				<li className="mt-3" onClick={() => setMenuOpen(false)}>
 					<a
-						href="#portfolio"
+						href="#services"
 						className="flex justify-center items-center"
 					>
 						<FontAwesomeIcon
