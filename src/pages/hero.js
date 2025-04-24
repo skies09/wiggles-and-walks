@@ -51,7 +51,7 @@ const Hero = () => {
 			>
 				<Button
 					text="Book a walk"
-					className="lg:ml-8 font-fredoka px-6 py-2 bg-colorOne text-2xl text-colorFour border-2 border-colorFour rounded-xl tracking-wider font-semibold lg:overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.25),0_6px_6px_rgba(0,0,0,0.22)]"
+					className="lg:ml-8 font-fredoka px-6 py-2 bg-colorOne text-2xl text-colorFour border-2 border-colorFour rounded-xl tracking-wider font-semibold overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.25),0_6px_6px_rgba(0,0,0,0.22)]"
 					active={true}
 					action={"contact"}
 				/>

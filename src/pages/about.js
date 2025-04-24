@@ -8,7 +8,7 @@ const About = () => {
 		<section
 			id="about"
 			ref={ref}
-			className="flex flex-col md:flex-row items-stretch gap-8 border-b-4 border-t-2 border-colorFour"
+			className="overflow-x-hidden flex flex-col md:flex-row items-stretch gap-8 border-b-4 border-t-4 border-colorFour"
 		>
 			<motion.div
 				initial={{ opacity: 0, x: -50 }}

@@ -8,7 +8,7 @@ const Meet = () => {
 		<section
 			id="meet"
 			ref={ref}
-			className="flex flex-col md:flex-row items-stretch gap-8 border-b-4 border-t-4 border-colorFour"
+			className="overflow-x-hidden flex flex-col md:flex-row items-stretch gap-8 border-b-4 border-t-4 border-colorFour"
 		>
 			<motion.div
 				initial={{ opacity: 0, x: 50 }}
@@ -45,7 +45,7 @@ const Meet = () => {
 				<img
 					src="../../assets/images/team.jpeg"
 					alt="About Us"
-					className="rounded-2xl w-auto h-4/5 shadow-[20px_20px_20px_rgba(0,0,0,0.25),6px_6px_6px_rgba(0,0,0,0.22)]"
+					className="rounded-2xl w-auto max-w-[90%] h-4/5 shadow-[20px_20px_20px_rgba(0,0,0,0.25),6px_6px_6px_rgba(0,0,0,0.22)]"
 				/>
 			</motion.div>
 		</section>
