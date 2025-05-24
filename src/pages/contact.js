@@ -58,7 +58,6 @@ const Contact = () => {
 
 		const handleSubmit = (values, { setSubmitting }) => {
 			setLoading(true);
-
 			sendEmail(values);
 			setSubmitting(false);
 		};
@@ -195,8 +194,8 @@ const Contact = () => {
 									moment.
 								</h2>
 								<p className="text-lg text-colorFour font-fredoka">
-									Please check back later. Thank you for your
-									understanding.
+									Please check back later. <br />
+									Thank you for your understanding.
 								</p>
 							</div>
 						</div>
