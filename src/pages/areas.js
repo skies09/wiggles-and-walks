@@ -6,7 +6,7 @@ const Areas = () => {
 		<section className="pb-16 pt-10 px-6 bg-colorFive">
 			<div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 lg:w-2/3">
 				<motion.div
-					className="w-full md:w-1/2 text-center md:text-left lg:pl-12 md:pr-4"
+					className="w-full md:w-1/2 text-left lg:pl-12 md:pr-4"
 					initial={{ opacity: 0, x: -50 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ duration: 0.7 }}
@@ -36,7 +36,7 @@ const Areas = () => {
 				>
 					<div className="relative h-64 justify-center flex rounded-lg">
 						<img
-							src="../../assets/images/areas.png"
+							src="../../assets/images/area.png"
 							alt="Map"
 							className="w-full h-full object-cover rounded-xl border border-colorFour"
 						/>
