@@ -14,6 +14,7 @@ const About = () => {
 				initial={{ opacity: 0, x: -50 }}
 				animate={inView ? { opacity: 1, x: 0 } : {}}
 				transition={{ duration: 0.5 }}
+				viewport={{ once: true }}
 				className="w-full md:w-1/2 bg-colorOne flex justify-center items-center p-8"
 			>
 				<img
@@ -27,6 +28,7 @@ const About = () => {
 				initial={{ opacity: 0, x: 50 }}
 				animate={inView ? { opacity: 1, x: 0 } : {}}
 				transition={{ duration: 0.5 }}
+				viewport={{ once: true }}
 				className="w-full md:w-1/2 px-6 lg:px-8 py-4 flex flex-col justify-start -mt-6 md:mt-0"
 			>
 				<p className="text-2xl lg:text-3xl text-colorTwo font font-fredoka lg:mb-4">

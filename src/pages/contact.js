@@ -215,6 +215,7 @@ const Contact = () => {
 				initial={{ opacity: 0, y: -100 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+				viewport={{ once: true }}
 				className="pt-16 md:pt-20 text-lg md:text-2xl text-colorTwo font-bold flex justify-center text-center font-gloria mb-4"
 			>
 				Ready for a Walk?
@@ -227,6 +228,7 @@ const Contact = () => {
 					className="w-full md:w-2/5 flex flex-col justify-start items-start space-y-4 bg-white p-6 rounded-xl shadow-lg"
 					initial={{ opacity: 0, x: -100 }}
 					whileInView={{ opacity: 1, x: 0 }}
+					viewport={{ once: true }}
 					transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
 				>
 					<div className="flex flex-col space-y-2">
@@ -258,6 +260,7 @@ const Contact = () => {
 					className="w-full md:w-3/5 bg-colorOne p-6 rounded-xl shadow-lg"
 					initial={{ opacity: 0, x: 100 }}
 					whileInView={{ opacity: 1, x: 0 }}
+					viewport={{ once: true }}
 					transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
 				>
 					{!formSubmitted && <ContactForm />}

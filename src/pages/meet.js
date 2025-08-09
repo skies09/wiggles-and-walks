@@ -14,6 +14,7 @@ const Meet = () => {
 				initial={{ opacity: 0, x: 50 }}
 				animate={inView ? { opacity: 1, x: 0 } : {}}
 				transition={{ duration: 0.5 }}
+				viewport={{ once: true }}
 				className="w-full md:w-3/5 px-6 lg:px-8 py-4 flex flex-col justify-start"
 			>
 				<h3 className="text-xl md:text-2xl font-semibold mb-1 font-lobster text-colorTwo">
@@ -40,6 +41,7 @@ const Meet = () => {
 				initial={{ opacity: 0, x: -50 }}
 				animate={inView ? { opacity: 1, x: 0 } : {}}
 				transition={{ duration: 0.5 }}
+				viewport={{ once: true }}
 				className="w-5/6 mx-auto md:w-2/5 pb-6 md:pb-0 md:bg-colorOne flex justify-center items-center"
 			>
 				<img
