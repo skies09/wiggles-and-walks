@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faPaw, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import * as Yup from "yup";
 import SocialLinks from "../components/socialLinks";
@@ -36,13 +36,16 @@ const Contact = () => {
 	}
 
 	const validationSchema = Yup.object({
-		user_name: Yup.string(),
-		dog_name: Yup.string(),
+		user_name: Yup.string().required("Your name is required"),
+		dog_name: Yup.string().required("We'd love to know your dog's name!"),
+		dog_breed: Yup.string(),
+		dog_age: Yup.string(),
 		user_email: Yup.string()
 			.email("Invalid email format")
 			.required("Email is required"),
 		user_mobile: Yup.string().required("Mobile number is required"),
 		service: Yup.string().required("Please select a service"),
+		preferred_time: Yup.string(),
 		message: Yup.string(),
 	});
 
@@ -50,9 +53,12 @@ const Contact = () => {
 		const initialValues = {
 			user_name: "",
 			dog_name: "",
+			dog_breed: "",
+			dog_age: "",
 			user_email: "",
 			user_mobile: "",
 			service: "",
+			preferred_time: "",
 			message: "",
 		};
 
@@ -70,120 +76,265 @@ const Contact = () => {
 			>
 				<div className="relative w-full flex flex-col items-center">
 					<Form
-						className={`flex flex-col items-center w-full gap-4 ${
+						className={`flex flex-col items-center w-full gap-6 ${
 							OOS ? "blur-sm pointer-events-none" : ""
 						}`}
 					>
-						<>
-							<div className="flex flex-col lg:flex-row gap-4 w-full lg:w-[90%]">
-								<div className="flex flex-col w-full lg:w-1/2">
-									<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
-										Name
-									</label>
-									<Field
-										className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto"
-										type="text"
-										id="user_name"
-										name="user_name"
-									/>
-								</div>
-								<div className="flex flex-col w-full lg:w-1/2">
-									<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
-										Dog Name
-									</label>
-									<Field
-										className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto"
-										type="text"
-										id="dog_name"
-										name="dog_name"
-									/>
-								</div>
-							</div>
-
-							<div className="flex flex-col w-full">
-								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
-									Email
-								</label>
-								<Field
-									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto"
-									type="email"
-									id="user_email"
-									name="user_email"
+						{/* Welcome Message */}
+						<div className="text-center mb-4">
+							<div className="flex justify-center mb-2">
+								<FontAwesomeIcon
+									icon={faPaw}
+									className="text-colorTwo text-2xl mr-2"
 								/>
-								<ErrorMessage
-									className="text-sm text-red-500 font-comforta"
-									name="user_email"
-									component="div"
+								<FontAwesomeIcon
+									icon={faHeart}
+									className="text-colorTwo text-2xl"
 								/>
 							</div>
+							<p className="text-colorTwo font-comforta text-lg">
+								Tell us about your furry friend and let's plan
+								the perfect walk!
+							</p>
+						</div>
 
-							<div className="flex flex-col w-full">
+						{/* Owner and Dog Names */}
+						<div className="flex flex-col lg:flex-row gap-4 w-full lg:w-[90%]">
+							<div className="flex flex-col w-full lg:w-1/2">
 								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
-									Mobile
+									Your Name
 								</label>
+								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+									Who will we be chatting with?
+								</p>
 								<Field
-									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto"
+									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
 									type="text"
-									id="user_mobile"
-									name="user_mobile"
+									id="user_name"
+									name="user_name"
+									placeholder="Your name"
 								/>
 								<ErrorMessage
-									className="text-sm text-red-500 font-comforta"
-									name="user_mobile"
+									className="text-sm text-red-500 font-comforta text-center"
+									name="user_name"
 									component="div"
 								/>
 							</div>
-
-							<div className="flex flex-col w-full">
+							<div className="flex flex-col w-full lg:w-1/2">
 								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
-									Service
+									Dog's Name
 								</label>
+								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+									The star of the show! 🐕
+								</p>
+								<Field
+									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+									type="text"
+									id="dog_name"
+									name="dog_name"
+									placeholder="Your dog's name"
+								/>
+								<ErrorMessage
+									className="text-sm text-red-500 font-comforta text-center"
+									name="dog_name"
+									component="div"
+								/>
+							</div>
+						</div>
+
+						{/* Dog Breed and Age */}
+						<div className="flex flex-col lg:flex-row gap-4 w-full lg:w-[90%]">
+							<div className="flex flex-col w-full lg:w-1/2">
+								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+									Breed
+								</label>
+								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+									What type of pup are we walking?
+								</p>
+								<Field
+									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+									type="text"
+									id="dog_breed"
+									name="dog_breed"
+									placeholder="e.g., Golden Retriever, Mixed"
+								/>
+							</div>
+							<div className="flex flex-col w-full lg:w-1/2">
+								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+									Age
+								</label>
+								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+									How old is your furry friend?
+								</p>
 								<Field
 									as="select"
-									name="service"
-									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto"
+									name="dog_age"
+									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
 								>
-									<option value="">Select a service</option>
-									<option value="dog_walking_30">
-										Dog Walking (30 mins)
+									<option value="">Select age</option>
+									<option value="puppy">
+										Puppy (under 1 year)
 									</option>
-									<option value="dog_walking_60">
-										Dog Walking (1 hour)
+									<option value="young">
+										Young (1-3 years)
 									</option>
-									<option value="home_boarding">
-										Home Boarding
+									<option value="adult">
+										Adult (3-7 years)
 									</option>
-									<option value="home_boarding_weekend">
-										Home Boarding (Weekend)
-									</option>
-									<option value="puppy_visit">
-										Puppy Visit
-									</option>
-									<option value="enquiry">
-										General enquiry
+									<option value="senior">
+										Senior (7+ years)
 									</option>
 								</Field>
 							</div>
+						</div>
 
-							<div className="flex flex-col w-full">
-								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
-									Message
-								</label>
-								<Field
-									as="textarea"
-									className="w-5/6 h-24 rounded-xl my-2 pl-2 font-comforta mx-auto"
-									id="message"
-									name="message"
-								/>
-							</div>
+						{/* Contact Information */}
+						<div className="flex flex-col w-full">
+							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								Email Address
+							</label>
+							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								Where should we send your booking confirmation?
+							</p>
+							<Field
+								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+								type="email"
+								id="user_email"
+								name="user_email"
+								placeholder="your.email@example.com"
+							/>
+							<ErrorMessage
+								className="text-sm text-red-500 font-comforta text-center"
+								name="user_email"
+								component="div"
+							/>
+						</div>
 
-							<button
-								className="px-6 py-2 bg-colorTwo text-colorFive font-fredoka rounded-xl mt-4 hover:bg-colorFour transition"
-								type="submit"
+						<div className="flex flex-col w-full">
+							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								Mobile Number
+							</label>
+							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								For quick updates about your walk
+							</p>
+							<Field
+								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+								type="text"
+								id="user_mobile"
+								name="user_mobile"
+								placeholder="07XXX XXX XXX"
+							/>
+							<ErrorMessage
+								className="text-sm text-red-500 font-comforta text-center"
+								name="user_mobile"
+								component="div"
+							/>
+						</div>
+
+						{/* Service Selection */}
+						<div className="flex flex-col w-full">
+							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								What Service Do You Need?
+							</label>
+							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								Let's find the perfect fit for your pup
+							</p>
+							<Field
+								as="select"
+								name="service"
+								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
 							>
-								Send
-							</button>
-						</>
+								<option value="">Select a service</option>
+								<option value="dog_walking_30">
+									🐕 Dog Walking (30 mins) - Perfect for quick
+									energy burns
+								</option>
+								<option value="dog_walking_60">
+									🐕 Dog Walking (1 hour) - Adventure time for
+									active pups
+								</option>
+								<option value="home_boarding">
+									🏠 Home Boarding - Cozy overnight stays
+								</option>
+								<option value="home_boarding_weekend">
+									🏠 Home Boarding (Weekend) - Weekend
+									getaways
+								</option>
+								<option value="puppy_visit">
+									🐾 Puppy Visit - Special care for little
+									ones
+								</option>
+								<option value="enquiry">
+									❓ General enquiry - Let's chat about your
+									needs
+								</option>
+							</Field>
+							<ErrorMessage
+								className="text-sm text-red-500 font-comforta text-center"
+								name="service"
+								component="div"
+							/>
+						</div>
+
+						{/* Preferred Time */}
+						<div className="flex flex-col w-full">
+							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								Preferred Walk Time
+							</label>
+							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								When does your pup like to get moving?
+							</p>
+							<Field
+								as="select"
+								name="preferred_time"
+								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+							>
+								<option value="">Select preferred time</option>
+								<option value="morning">
+									🌅 Morning (7-10 AM)
+								</option>
+								<option value="midday">
+									☀️ Midday (10 AM-2 PM)
+								</option>
+								<option value="afternoon">
+									🌤️ Afternoon (2-5 PM)
+								</option>
+								<option value="evening">
+									🌆 Evening (5-8 PM)
+								</option>
+								<option value="flexible">
+									🕐 Flexible - I'm open to suggestions
+								</option>
+							</Field>
+						</div>
+
+						{/* Message */}
+						<div className="flex flex-col w-full">
+							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								Tell Us More About Your Pup
+							</label>
+							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								Any special needs, favorite toys, or things we
+								should know?
+							</p>
+							<Field
+								as="textarea"
+								className="w-5/6 h-24 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none resize-none"
+								id="message"
+								name="message"
+								placeholder="Tell us about your dog's personality, any special requirements, or questions you have..."
+							/>
+						</div>
+
+						<button
+							className="px-8 py-3 bg-colorTwo text-colorFive font-fredoka rounded-xl mt-4 hover:bg-colorFour transition duration-300 transform hover:scale-105 shadow-lg"
+							type="submit"
+							disabled={loading}
+						>
+							{loading
+								? "Sending..."
+								: "🐾 Let's Plan Your Walk! 🐾"}
+						</button>
 					</Form>
 
 					{OOS && (
@@ -223,52 +374,40 @@ const Contact = () => {
 				Get in touch!
 			</motion.div>
 
-			<div className="flex flex-col-reverse md:flex-row justify-between items-start w-full lg:w-3/4 xl:w-2/3 mx-auto gap-8">
+			<div className="flex flex-col items-center w-full lg:w-3/4 xl:w-2/3 mx-auto gap-8">
 				<motion.div
-					className="w-full md:w-2/5 flex flex-col justify-start items-start space-y-4 bg-white p-6 rounded-xl shadow-lg"
-					initial={{ opacity: 0, x: -100 }}
-					whileInView={{ opacity: 1, x: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-				>
-					<div className="flex flex-col space-y-2">
-						<div className="flex items-center">
-							<FontAwesomeIcon
-								icon={faPhone}
-								size="lg"
-								className="text-colorTwo"
-							/>
-							<span className="ml-3 text-lg text-colorTwo font-comforta">
-								07950981097
-							</span>
-						</div>
-						<div className="flex items-center">
-							<FontAwesomeIcon
-								icon={faEnvelope}
-								size="lg"
-								className="text-colorTwo"
-							/>
-							<span className="ml-3 text-lg text-colorTwo font-comforta">
-								donna.smith08@icloud.com
-							</span>
-						</div>
-					</div>
-					<SocialLinks />
-				</motion.div>
-
-				<motion.div
-					className="w-full md:w-3/5 bg-colorOne p-6 rounded-xl shadow-lg"
-					initial={{ opacity: 0, x: 100 }}
-					whileInView={{ opacity: 1, x: 0 }}
+					className="w-full bg-colorOne p-6 rounded-xl shadow-lg"
+					initial={{ opacity: 0, y: 50 }}
+					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
 				>
 					{!formSubmitted && <ContactForm />}
 					{formSubmitted && (
-						<p className="text-lg text-colorTwo font-bold text-center">
-							Thanks, I'll get back to you shortly!
-						</p>
+						<div className="text-center">
+							<div className="flex justify-center mb-4">
+								<FontAwesomeIcon
+									icon={faHeart}
+									className="text-colorTwo text-4xl"
+								/>
+							</div>
+							<p className="text-lg text-colorTwo font-bold text-center font-comforta">
+								Thanks for reaching out! I'll get back to you
+								shortly with all the details for your pup's
+								perfect walk! 🐕✨
+							</p>
+						</div>
 					)}
+				</motion.div>
+
+				<motion.div
+					className="w-full flex justify-center"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+				>
+					<SocialLinks />
 				</motion.div>
 			</div>
 		</div>

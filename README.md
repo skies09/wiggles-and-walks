@@ -1,70 +1,158 @@
-# Getting Started with Create React App
+# Wiggles & Walks - Dog Walking Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A beautiful, responsive dog walking website with integrated booking system.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🐕 **Personalized Contact Form** - Dog-focused contact form with breed, age, and service selection
+- 📅 **Booking System** - Interactive calendar with real-time availability checking
+- 🎨 **Modern Design** - Beautiful UI with animations and responsive design
+- 📱 **Mobile Friendly** - Works perfectly on all devices
+- 🔥 **Firebase Integration** - Free, scalable backend for bookings
+- 👨‍💼 **Admin Dashboard** - Manage bookings, view statistics, and update statuses
 
-### `npm start`
+## Booking System Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Real-time Availability** - Greyed out dates show booking capacity
+- **Time Slot Management** - Prevents double bookings
+- **Service Selection** - Multiple service types with pricing
+- **Dog Information** - Collect breed, age, and special requirements
+- **Admin Management** - View, confirm, and manage all bookings
+- **Status Tracking** - Pending, confirmed, completed, cancelled
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+### 1. Firebase Setup (Free)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project
+3. Enable Firestore Database
+4. Go to Project Settings > General
+5. Add a web app to your project
+6. Copy the Firebase config
 
-### `npm run build`
+### 2. Environment Variables
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Create a `.env` file in the root directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```env
+# Firebase Configuration
+REACT_APP_FIREBASE_API_KEY=your_api_key_here
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# EmailJS Configuration (for contact form)
+REACT_APP_EMAIL_SERVICE_KEY=your_email_service_key
+REACT_APP_EMAIL_TEMPLATE_KEY=your_email_template_key
+REACT_APP_EMAIL_KEY=your_email_key
+```
 
-### `npm run eject`
+### 3. Firestore Security Rules
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In Firebase Console > Firestore Database > Rules, set these rules:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /bookings/{booking} {
+      allow read, write: if true; // For demo - add authentication later
+    }
+  }
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Install Dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+### 5. Run the Application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+### For Customers
+1. Navigate to the contact section
+2. Fill out the personalized form with dog details
+3. Or use the booking system for direct scheduling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### For Admin
+1. Access `/admin` route (you can add this to your navigation)
+2. View all bookings with filtering options
+3. Confirm, complete, or cancel bookings
+4. View booking statistics
 
-### Analyzing the Bundle Size
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Firebase Hosting (Recommended)
 
-### Making a Progressive Web App
+1. Install Firebase CLI:
+```bash
+npm install -g firebase-tools
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Login and initialize:
+```bash
+firebase login
+firebase init hosting
+```
 
-### Advanced Configuration
+3. Build and deploy:
+```bash
+npm run build
+firebase deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Customization
 
-### Deployment
+### Services & Pricing
+Edit the services array in `src/pages/booking.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```javascript
+const services = [
+  { id: "walk_30", name: "Dog Walking (30 mins)", price: "£12", emoji: "🐕" },
+  { id: "walk_60", name: "Dog Walking (1 hour)", price: "£18", emoji: "🐕" },
+  // Add more services here
+];
+```
 
-### `npm run build` fails to minify
+### Time Slots
+Modify the timeSlots array in `src/pages/booking.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```javascript
+const timeSlots = [
+  "07:00", "08:00", "09:00", "10:00", "11:00", 
+  "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"
+];
+```
+
+### Booking Limits
+Change the maximum bookings per day in `src/pages/booking.js`:
+
+```javascript
+return dayBookings.length < 6; // Change 6 to your preferred limit
+```
+
+## Cost Breakdown
+
+- **Firebase Firestore**: Free tier includes 1GB storage and 50,000 reads/day
+- **Firebase Hosting**: Free tier includes 10GB storage and 360MB/day transfer
+- **EmailJS**: Free tier includes 200 emails/month
+
+For a small dog walking business, the free tiers should be more than sufficient!
+
+## Support
+
+If you need help setting up Firebase or customizing the booking system, feel free to reach out!
+
+---
+
+Built with ❤️ for dog lovers everywhere! 🐾

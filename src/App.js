@@ -13,6 +13,7 @@ import Services from "./pages/services";
 import Areas from "./pages/areas";
 import Pricing from "./pages/pricing";
 import Gallery from "./pages/gallery";
+import Booking from "./pages/booking";
 
 export default function App() {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -31,6 +32,7 @@ export default function App() {
 				<Gallery />
 				<Areas />
 				<Pricing />
+				<Booking />
 				<Faqs />
 				<Contact />
 			</div>
