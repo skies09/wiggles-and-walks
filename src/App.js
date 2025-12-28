@@ -19,10 +19,10 @@ export default function App() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
-		<div>
+		<div className="overflow-x-hidden min-h-screen">
 			<Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 			<Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-			<div className="relative w-full h-screen snap-mandatory snap-y -mt-8">
+			<div className="relative w-full min-h-screen snap-mandatory snap-y -mt-8 overflow-x-hidden">
 				<Hero />
 				<IconCloud />
 				<About />

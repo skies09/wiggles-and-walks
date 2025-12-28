@@ -81,18 +81,18 @@ const Contact = () => {
 						}`}
 					>
 						{/* Welcome Message */}
-						<div className="text-center mb-4">
-							<div className="flex justify-center mb-2">
+						<div className="text-center mb-6">
+							<div className="flex justify-center mb-3">
 								<FontAwesomeIcon
 									icon={faPaw}
-									className="text-colorTwo text-2xl mr-2"
+									className="text-brand-primary text-3xl mr-2"
 								/>
 								<FontAwesomeIcon
 									icon={faHeart}
-									className="text-colorTwo text-2xl"
+									className="text-brand-accent text-3xl"
 								/>
 							</div>
-							<p className="text-colorTwo font-comforta text-lg">
+							<p className="text-brand-primary font-body text-lg md:text-xl font-semibold">
 								Tell us about your furry friend and let's plan
 								the perfect walk!
 							</p>
@@ -101,41 +101,41 @@ const Contact = () => {
 						{/* Owner and Dog Names */}
 						<div className="flex flex-col lg:flex-row gap-4 w-full lg:w-[90%]">
 							<div className="flex flex-col w-full lg:w-1/2">
-								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 									Your Name
 								</label>
-								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								<p className="text-sm text-neutral-600 text-center font-body mb-2">
 									Who will we be chatting with?
 								</p>
 								<Field
-									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+									className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 									type="text"
 									id="user_name"
 									name="user_name"
 									placeholder="Your name"
 								/>
 								<ErrorMessage
-									className="text-sm text-red-500 font-comforta text-center"
+									className="text-sm text-red-500 font-body text-center mt-1"
 									name="user_name"
 									component="div"
 								/>
 							</div>
 							<div className="flex flex-col w-full lg:w-1/2">
-								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 									Dog's Name
 								</label>
-								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								<p className="text-sm text-neutral-600 text-center font-body mb-2">
 									The star of the show! 🐕
 								</p>
 								<Field
-									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+									className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 									type="text"
 									id="dog_name"
 									name="dog_name"
 									placeholder="Your dog's name"
 								/>
 								<ErrorMessage
-									className="text-sm text-red-500 font-comforta text-center"
+									className="text-sm text-red-500 font-body text-center mt-1"
 									name="dog_name"
 									component="div"
 								/>
@@ -145,14 +145,14 @@ const Contact = () => {
 						{/* Dog Breed and Age */}
 						<div className="flex flex-col lg:flex-row gap-4 w-full lg:w-[90%]">
 							<div className="flex flex-col w-full lg:w-1/2">
-								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 									Breed
 								</label>
-								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								<p className="text-sm text-neutral-600 text-center font-body mb-2">
 									What type of pup are we walking?
 								</p>
 								<Field
-									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+									className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 									type="text"
 									id="dog_breed"
 									name="dog_breed"
@@ -160,16 +160,16 @@ const Contact = () => {
 								/>
 							</div>
 							<div className="flex flex-col w-full lg:w-1/2">
-								<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+								<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 									Age
 								</label>
-								<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+								<p className="text-sm text-neutral-600 text-center font-body mb-2">
 									How old is your furry friend?
 								</p>
 								<Field
 									as="select"
 									name="dog_age"
-									className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+									className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 								>
 									<option value="">Select age</option>
 									<option value="puppy">
@@ -190,42 +190,42 @@ const Contact = () => {
 
 						{/* Contact Information */}
 						<div className="flex flex-col w-full">
-							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+							<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 								Email Address
 							</label>
-							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+							<p className="text-sm text-neutral-600 text-center font-body mb-2">
 								Where should we send your booking confirmation?
 							</p>
 							<Field
-								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+								className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 								type="email"
 								id="user_email"
 								name="user_email"
 								placeholder="your.email@example.com"
 							/>
 							<ErrorMessage
-								className="text-sm text-red-500 font-comforta text-center"
+								className="text-sm text-red-500 font-body text-center mt-1"
 								name="user_email"
 								component="div"
 							/>
 						</div>
 
 						<div className="flex flex-col w-full">
-							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+							<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 								Mobile Number
 							</label>
-							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+							<p className="text-sm text-neutral-600 text-center font-body mb-2">
 								For quick updates about your walk
 							</p>
 							<Field
-								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+								className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 								type="text"
 								id="user_mobile"
 								name="user_mobile"
 								placeholder="07XXX XXX XXX"
 							/>
 							<ErrorMessage
-								className="text-sm text-red-500 font-comforta text-center"
+								className="text-sm text-red-500 font-body text-center mt-1"
 								name="user_mobile"
 								component="div"
 							/>
@@ -233,16 +233,16 @@ const Contact = () => {
 
 						{/* Service Selection */}
 						<div className="flex flex-col w-full">
-							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+							<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 								What Service Do You Need?
 							</label>
-							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+							<p className="text-sm text-neutral-600 text-center font-body mb-2">
 								Let's find the perfect fit for your pup
 							</p>
 							<Field
 								as="select"
 								name="service"
-								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+								className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 							>
 								<option value="">Select a service</option>
 								<option value="dog_walking_30">
@@ -270,7 +270,7 @@ const Contact = () => {
 								</option>
 							</Field>
 							<ErrorMessage
-								className="text-sm text-red-500 font-comforta text-center"
+								className="text-sm text-red-500 font-body text-center mt-1"
 								name="service"
 								component="div"
 							/>
@@ -278,16 +278,16 @@ const Contact = () => {
 
 						{/* Preferred Time */}
 						<div className="flex flex-col w-full">
-							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+							<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 								Preferred Walk Time
 							</label>
-							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+							<p className="text-sm text-neutral-600 text-center font-body mb-2">
 								When does your pup like to get moving?
 							</p>
 							<Field
 								as="select"
 								name="preferred_time"
-								className="w-5/6 h-10 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none"
+								className="w-5/6 h-12 rounded-brand my-2 pl-4 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
 							>
 								<option value="">Select preferred time</option>
 								<option value="morning">
@@ -310,16 +310,16 @@ const Contact = () => {
 
 						{/* Message */}
 						<div className="flex flex-col w-full">
-							<label className="text-lg md:text-xl text-colorTwo font-bold text-center font-comforta opacity-90">
+							<label className="text-lg md:text-xl text-brand-primary font-heading font-bold text-center mb-1">
 								Tell Us More About Your Pup
 							</label>
-							<p className="text-sm text-colorTwo text-center font-comforta opacity-70 mb-1">
+							<p className="text-sm text-neutral-600 text-center font-body mb-2">
 								Any special needs, favorite toys, or things we
 								should know?
 							</p>
 							<Field
 								as="textarea"
-								className="w-5/6 h-24 rounded-xl my-2 pl-2 font-comforta mx-auto border border-gray-300 focus:border-colorTwo focus:outline-none resize-none"
+								className="w-5/6 h-32 rounded-brand my-2 pl-4 pt-3 font-body mx-auto border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 resize-none transition-all"
 								id="message"
 								name="message"
 								placeholder="Tell us about your dog's personality, any special requirements, or questions you have..."
@@ -327,7 +327,7 @@ const Contact = () => {
 						</div>
 
 						<button
-							className="px-8 py-3 bg-colorTwo text-colorFive font-fredoka rounded-xl mt-4 hover:bg-colorFour transition duration-300 transform hover:scale-105 shadow-lg"
+							className="px-8 py-4 bg-brand-primary text-neutral-50 font-heading font-bold rounded-brand-lg mt-6 hover:bg-brand-primaryLight transition-all duration-300 transform hover:scale-105 shadow-brand-lg text-lg"
 							type="submit"
 							disabled={loading}
 						>
@@ -338,13 +338,13 @@ const Contact = () => {
 					</Form>
 
 					{OOS && (
-						<div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
-							<div className="background-white p-6 rounded-xl shadow-md max-w-md text-center relative z-10">
-								<h2 className="text-2xl font-medium mb-2 text-colorFour font-fredoka">
+						<div className="absolute inset-0 flex items-start md:items-center justify-center bg-black bg-opacity-80 rounded-brand-xl pt-4 md:pt-0">
+							<div className="bg-neutral-50 p-6 md:p-8 rounded-brand-xl shadow-brand-xl max-w-md text-center relative z-10 border-4 border-brand-primary/30 mx-4 md:mx-0">
+								<h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-bold mb-4 text-brand-primary">
 									Sorry, I am not accepting new clients at the
 									moment.
 								</h2>
-								<p className="text-lg text-colorFour font-fredoka">
+								<p className="text-base md:text-lg text-neutral-600 font-body">
 									Please check back later. <br />
 									Thank you for your understanding.
 								</p>
@@ -358,25 +358,24 @@ const Contact = () => {
 
 	return (
 		<div
-			className="w-screen overflow-hidden bg-colorFive pb-6 md:pb-12"
+			className="w-full overflow-x-hidden bg-gradient-to-br from-neutral-50 to-brand-secondaryLight/20 pb-6 md:pb-12"
 			ref={containerRef}
 			id="contact"
 		>
 			<motion.div
 				initial={{ opacity: 0, y: -100 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+				transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
 				viewport={{ once: true }}
-				className="pt-16 md:pt-20 text-lg md:text-2xl text-colorTwo font-bold flex justify-center text-center font-gloria mb-4"
+				className="pt-16 md:pt-20 text-3xl md:text-4xl lg:text-5xl text-brand-primary font-heading font-bold flex flex-col md:block justify-center text-center mb-4"
 			>
-				Ready for a Walk?
-				<br />
-				Get in touch!
+				<span className="block">Ready for a Walk?</span>
+				<span className="block text-2xl md:text-3xl lg:text-4xl mt-2">Get in touch!</span>
 			</motion.div>
 
-			<div className="flex flex-col items-center w-full lg:w-3/4 xl:w-2/3 mx-auto gap-8">
+			<div className="flex flex-col items-center w-full lg:w-3/4 xl:w-2/3 mx-auto gap-8 px-4">
 				<motion.div
-					className="w-full bg-colorOne p-6 rounded-xl shadow-lg"
+					className="w-full bg-brand-secondaryLight/70 backdrop-blur-sm p-6 md:p-8 rounded-brand-xl shadow-brand-lg border-2 border-brand-primary/20"
 					initial={{ opacity: 0, y: 50 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
@@ -384,14 +383,14 @@ const Contact = () => {
 				>
 					{!formSubmitted && <ContactForm />}
 					{formSubmitted && (
-						<div className="text-center">
+						<div className="text-center py-8">
 							<div className="flex justify-center mb-4">
 								<FontAwesomeIcon
 									icon={faHeart}
-									className="text-colorTwo text-4xl"
+									className="text-brand-primary text-5xl"
 								/>
 							</div>
-							<p className="text-lg text-colorTwo font-bold text-center font-comforta">
+							<p className="text-xl md:text-2xl text-brand-primary font-heading font-bold text-center">
 								Thanks for reaching out! I'll get back to you
 								shortly with all the details for your pup's
 								perfect walk! 🐕✨

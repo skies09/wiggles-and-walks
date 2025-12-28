@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { useInView } from "react-intersection-observer";
 
 const reviews = [
 	{
@@ -21,48 +22,59 @@ const reviews = [
 	},
 ];
 
-const fadeIn = {
-	hidden: { opacity: 0, y: 20 },
-	visible: (i) => ({
-		opacity: 1,
-		y: 0,
-		transition: { delay: i * 0.2 },
-	}),
-};
-
 const Reviews = () => {
+	const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
 	return (
-		<section className="bg-colorFive py-12 px-4 pb-16 border-b-4 border-colorFour">
-			<div className="max-w-5xl mx-auto">
-				<h2 className="text-3xl font-bold text-center mb-8 text-colorTwo font-gloria">
+		<section
+			ref={ref}
+			className="section-brand bg-gradient-to-br from-neutral-50 to-brand-secondaryLight/20 border-b-4 border-brand-primary/30"
+		>
+			<div className="max-w-6xl mx-auto">
+				<motion.h2
+					initial={{ opacity: 0, y: 20 }}
+					animate={inView ? { opacity: 1, y: 0 } : {}}
+					transition={{ duration: 0.6 }}
+					viewport={{ once: true }}
+					className="text-4xl md:text-5xl font-heading font-bold text-center mb-4 text-brand-primary"
+				>
 					What Our Clients Say
-				</h2>
-				<div className="grid md:grid-cols-3 gap-6">
+				</motion.h2>
+				<motion.p
+					initial={{ opacity: 0 }}
+					animate={inView ? { opacity: 1 } : {}}
+					transition={{ duration: 0.6, delay: 0.2 }}
+					viewport={{ once: true }}
+					className="text-center text-neutral-600 font-body text-lg mb-12"
+				>
+					Real feedback from happy pet parents
+				</motion.p>
+				<div className="grid md:grid-cols-3 gap-6 md:gap-8">
 					{reviews.map((review, index) => (
 						<motion.div
 							key={index}
-							className="bg-colorOne p-6 rounded-2xl shadow-md flex flex-col justify-between"
-							custom={index}
-							initial="hidden"
-							animate="visible"
-							variants={fadeIn}
+							className="card-brand flex flex-col justify-between border-2 border-brand-primary/20 hover:border-brand-primary/40"
+							initial={{ opacity: 0, y: 30 }}
+							animate={inView ? { opacity: 1, y: 0 } : {}}
+							transition={{ duration: 0.6, delay: index * 0.15 }}
+							viewport={{ once: true }}
 						>
 							<div>
-								<div className="flex items-center gap-2 mb-2">
+								<div className="flex items-center gap-1 mb-4">
 									{[...Array(review.rating)].map((_, i) => (
 										<FontAwesomeIcon
 											key={i}
 											icon={faStar}
-											className="text-colorTwo w-5 h-5"
+											className="text-brand-accent w-5 h-5"
 										/>
 									))}
 								</div>
-								<p className="text-lg font-comforta text-colorFour mb-4">
-									“{review.text}”
+								<p className="text-lg font-body text-neutral-600 mb-6 leading-relaxed italic">
+									"{review.text}"
 								</p>
 							</div>
-							<p className="font-semibold text-right font-lobster text-colorTwo">
-								{review.name}
+							<p className="font-heading font-semibold text-right text-brand-primary text-lg">
+								— {review.name}
 							</p>
 						</motion.div>
 					))}

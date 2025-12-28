@@ -26,81 +26,81 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 				closed: { opacity: 0, y: "-100%" },
 			}}
 			initial="closed"
-			transition={{ duration: 1, ease: "easeInOut" }}
-			className="w-full md:w-1/5 h-[40vh] bg-colorOne fixed top-0 left-0 flex flex-col items-center justify-center z-40"
+			transition={{ duration: 0.5, ease: "easeInOut" }}
+			className="w-full md:w-1/4 h-[50vh] bg-brand-secondary/95 backdrop-blur-md fixed top-14 left-0 flex flex-col items-center justify-center z-40 shadow-brand-xl border-b-4 border-brand-primary/30"
 		>
-			<ul className="flex items-start justify-center flex-col">
-				<li className="mt-3" onClick={() => setMenuOpen(false)}>
+			<ul className="flex items-start justify-center flex-col w-full px-8">
+				<li className="mt-4 w-full" onClick={() => setMenuOpen(false)}>
 					<a
 						href="#about"
-						className="flex justify-center items-center"
+						className="flex justify-start items-center w-full py-3 px-4 rounded-brand hover:bg-brand-primary/20 transition-all duration-300 group"
 					>
 						<FontAwesomeIcon
 							icon={faUser}
 							size="lg"
-							className="text-colorTwo hover:text-colorFour hover:underline"
+							className="text-brand-primary group-hover:text-brand-primaryDark transition-colors"
 						/>
-						<span className="font-fredoka font-medium ml-4 text-colorTwo hover:text-colorFour hover:underline text-xl">
+						<span className="font-heading font-semibold ml-4 text-brand-primary group-hover:text-brand-primaryDark text-xl transition-colors">
 							About
 						</span>
 					</a>
 				</li>
-				<li className="mt-3" onClick={() => setMenuOpen(false)}>
+				<li className="mt-2 w-full" onClick={() => setMenuOpen(false)}>
 					<a
 						href="#services"
-						className="flex justify-center items-center"
+						className="flex justify-start items-center w-full py-3 px-4 rounded-brand hover:bg-brand-primary/20 transition-all duration-300 group"
 					>
 						<FontAwesomeIcon
 							icon={faDog}
 							size="lg"
-							className="text-colorTwo hover:text-colorFour hover:underline"
+							className="text-brand-primary group-hover:text-brand-primaryDark transition-colors"
 						/>
-						<span className="font-fredoka font-medium ml-3 text-colorTwo hover:text-colorFour hover:underline text-xl">
+						<span className="font-heading font-semibold ml-4 text-brand-primary group-hover:text-brand-primaryDark text-xl transition-colors">
 							Services
 						</span>
 					</a>
 				</li>
-				<li className="mt-3" onClick={() => setMenuOpen(false)}>
+				<li className="mt-2 w-full" onClick={() => setMenuOpen(false)}>
 					<a
 						href="#gallery"
-						className="flex justify-center items-center"
+						className="flex justify-start items-center w-full py-3 px-4 rounded-brand hover:bg-brand-primary/20 transition-all duration-300 group"
 					>
 						<FontAwesomeIcon
 							icon={faImages}
 							size="lg"
-							className="text-colorTwo hover:text-colorFour hover:underline"
+							className="text-brand-primary group-hover:text-brand-primaryDark transition-colors"
 						/>
-						<span className="font-fredoka font-medium ml-4 text-colorTwo hover:text-colorFour hover:underline text-xl">
+						<span className="font-heading font-semibold ml-4 text-brand-primary group-hover:text-brand-primaryDark text-xl transition-colors">
 							Gallery
 						</span>
 					</a>
 				</li>
-				<li className="mt-3" onClick={() => setMenuOpen(false)}>
+				<li className="mt-2 w-full" onClick={() => setMenuOpen(false)}>
 					<a
 						href="#pricing"
-						className="flex justify-center items-center"
+						className="flex justify-start items-center w-full py-3 px-4 rounded-brand hover:bg-brand-primary/20 transition-all duration-300 group"
 					>
 						<FontAwesomeIcon
 							icon={faTags}
 							size="lg"
-							className="text-colorTwo hover:text-colorFour hover:underline"
+							className="text-brand-primary group-hover:text-brand-primaryDark transition-colors"
 						/>
-						<span className="font-fredoka font-medium ml-4 text-colorTwo hover:text-colorFour hover:underline text-xl">
+						<span className="font-heading font-semibold ml-4 text-brand-primary group-hover:text-brand-primaryDark text-xl transition-colors">
 							Pricing
 						</span>
 					</a>
 				</li>
-				<li className="mt-3" onClick={() => setMenuOpen(false)}>
+				<li className="mt-2 w-full" onClick={() => setMenuOpen(false)}>
 					<a
 						href="#contact"
-						className="flex justify-center items-center"
+						className="flex justify-start items-center w-full py-3 px-4 rounded-brand hover:bg-brand-primary/20 transition-all duration-300 group"
 					>
 						<FontAwesomeIcon
 							icon={faEnvelope}
 							size="lg"
-							className="text-colorTwo hover:text-colorFour hover:underline"
+							className="text-brand-primary group-hover:text-brand-primaryDark transition-colors"
 						/>
-						<span className="font-fredoka font-medium ml-3 text-colorTwo hover:text-colorFour hover:underline text-xl">
+						<span className="font-heading font-semibold ml-4 text-brand-primary group-hover:text-brand-primaryDark text-xl transition-colors">
 							Contact
 						</span>
 					</a>

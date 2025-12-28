@@ -193,19 +193,18 @@ const Booking = () => {
 
 	return (
 		<div
-			className="w-screen overflow-hidden bg-colorFive pb-6 md:pb-12"
+			className="w-full overflow-x-hidden bg-gradient-to-br from-neutral-50 to-brand-secondaryLight/20 pb-6 md:pb-12"
 			id="booking"
 		>
 			<motion.div
 				initial={{ opacity: 0, y: -100 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+				transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
 				viewport={{ once: true }}
-				className="pt-16 md:pt-20 text-lg md:text-2xl text-colorTwo font-bold flex justify-center text-center font-gloria mb-4"
+				className="pt-16 md:pt-20 text-3xl md:text-4xl lg:text-5xl text-brand-primary font-heading font-bold flex flex-col md:block justify-center text-center mb-4"
 			>
-				Book Your Walk
-				<br />
-				🐾 Schedule with ease! 🐾
+				<span className="block">Book Your Walk</span>
+				<span className="block text-2xl md:text-3xl lg:text-4xl mt-2">🐾 Schedule with ease! 🐾</span>
 			</motion.div>
 
 			{!bookingSubmitted ? (
@@ -217,7 +216,7 @@ const Booking = () => {
 					>
 						{/* Calendar Section */}
 						<motion.div
-							className="w-full lg:w-1/2 bg-white p-6 rounded-xl shadow-lg flex flex-col items-center"
+							className="w-full lg:w-1/2 bg-neutral-50 p-6 md:p-8 rounded-brand-xl shadow-brand-lg border-2 border-brand-primary/20 flex flex-col items-center"
 							initial={{ opacity: 0, x: -50 }}
 							whileInView={{ opacity: 1, x: 0 }}
 							viewport={{ once: true }}
@@ -230,12 +229,12 @@ const Booking = () => {
 							<div className="text-center mb-6 w-full">
 								<FontAwesomeIcon
 									icon={faCalendar}
-									className="text-colorTwo text-3xl mb-2"
+									className="text-brand-primary text-4xl mb-3"
 								/>
-								<h2 className="text-xl font-bold text-colorTwo font-fredoka">
+								<h2 className="text-2xl font-heading font-bold text-brand-primary">
 									Choose Your Date
 								</h2>
-								<p className="text-sm text-colorTwo opacity-70 font-comforta">
+								<p className="text-sm text-neutral-600 font-body mt-2">
 									Greyed out dates are fully booked
 								</p>
 							</div>
@@ -252,8 +251,8 @@ const Booking = () => {
 							</div>
 
 							{selectedDate && (
-								<div className="mt-4 p-4 bg-colorOne rounded-lg w-full">
-									<h3 className="font-bold text-colorTwo mb-2">
+								<div className="mt-6 p-5 bg-brand-secondaryLight/50 rounded-brand-lg w-full border-2 border-brand-primary/20">
+									<h3 className="font-heading font-bold text-brand-primary mb-3 text-lg">
 										Available Times for{" "}
 										{format(selectedDate, "EEEE, MMMM do")}
 									</h3>
@@ -266,10 +265,10 @@ const Booking = () => {
 												onClick={() =>
 													setSelectedTime(time)
 												}
-												className={`p-2 rounded text-sm font-comforta transition ${
+												className={`p-3 rounded-brand text-sm font-body font-semibold transition-all duration-300 ${
 													selectedTime === time
-														? "bg-colorTwo text-colorFive"
-														: "bg-white text-colorTwo hover:bg-colorFour"
+														? "bg-brand-primary text-neutral-50 shadow-brand"
+														: "bg-neutral-50 text-brand-primary hover:bg-brand-secondaryLight border-2 border-brand-primary/30"
 												}`}
 											>
 												{time}
@@ -289,7 +288,7 @@ const Booking = () => {
 
 						{/* Booking Form */}
 						<motion.div
-							className="w-full lg:w-1/2 bg-colorOne p-6 rounded-xl shadow-lg"
+							className="w-full lg:w-1/2 bg-brand-secondaryLight/70 backdrop-blur-sm p-6 md:p-8 rounded-brand-xl shadow-brand-lg border-2 border-brand-primary/20"
 							initial={{ opacity: 0, x: 50 }}
 							whileInView={{ opacity: 1, x: 0 }}
 							viewport={{ once: true }}
@@ -302,9 +301,9 @@ const Booking = () => {
 							<div className="text-center mb-6">
 								<FontAwesomeIcon
 									icon={faPaw}
-									className="text-colorTwo text-3xl mb-2"
+									className="text-brand-primary text-4xl mb-3"
 								/>
-								<h2 className="text-xl font-bold text-colorTwo font-fredoka">
+								<h2 className="text-2xl font-heading font-bold text-brand-primary">
 									Complete Your Booking
 								</h2>
 							</div>
@@ -312,7 +311,7 @@ const Booking = () => {
 							<form onSubmit={handleSubmit} className="space-y-4">
 								{/* Service Selection */}
 								<div>
-									<label className="block text-colorTwo font-bold mb-2 font-comforta">
+									<label className="block text-brand-primary font-heading font-bold mb-2">
 										Select Service
 									</label>
 									<div className="grid grid-cols-1 gap-2">
@@ -325,11 +324,11 @@ const Booking = () => {
 														service.id
 													)
 												}
-												className={`p-3 rounded-lg text-left transition ${
+												className={`p-4 rounded-brand-lg text-left transition-all duration-300 border-2 ${
 													selectedService ===
 													service.id
-														? "bg-colorTwo text-colorFive"
-														: "bg-white text-colorTwo hover:bg-colorFour"
+														? "bg-brand-primary text-neutral-50 border-brand-primary shadow-brand"
+														: "bg-neutral-50 text-brand-primary hover:bg-brand-secondaryLight border-brand-primary/30"
 												}`}
 											>
 												<div className="flex justify-between items-center">
@@ -349,7 +348,7 @@ const Booking = () => {
 								{/* Owner Information */}
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 									<div>
-										<label className="block text-colorTwo font-bold mb-1 font-comforta">
+										<label className="block text-brand-primary font-heading font-bold mb-1">
 											Your Name *
 										</label>
 										<input
@@ -358,11 +357,11 @@ const Booking = () => {
 											value={formData.ownerName}
 											onChange={handleInputChange}
 											required
-											className="w-full p-2 rounded-lg border border-gray-300 focus:border-colorTwo focus:outline-none font-comforta"
+											className="w-full p-3 rounded-brand border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 font-body transition-all"
 										/>
 									</div>
 									<div>
-										<label className="block text-colorTwo font-bold mb-1 font-comforta">
+										<label className="block text-brand-primary font-heading font-bold mb-1">
 											Dog's Name *
 										</label>
 										<input
@@ -371,14 +370,14 @@ const Booking = () => {
 											value={formData.dogName}
 											onChange={handleInputChange}
 											required
-											className="w-full p-2 rounded-lg border border-gray-300 focus:border-colorTwo focus:outline-none font-comforta"
+											className="w-full p-3 rounded-brand border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 font-body transition-all"
 										/>
 									</div>
 								</div>
 
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 									<div>
-										<label className="block text-colorTwo font-bold mb-1 font-comforta">
+										<label className="block text-brand-primary font-heading font-bold mb-1">
 											Dog Breed
 										</label>
 										<input
@@ -386,18 +385,18 @@ const Booking = () => {
 											name="dogBreed"
 											value={formData.dogBreed}
 											onChange={handleInputChange}
-											className="w-full p-2 rounded-lg border border-gray-300 focus:border-colorTwo focus:outline-none font-comforta"
+											className="w-full p-3 rounded-brand border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 font-body transition-all"
 										/>
 									</div>
 									<div>
-										<label className="block text-colorTwo font-bold mb-1 font-comforta">
+										<label className="block text-brand-primary font-heading font-bold mb-1">
 											Dog Age
 										</label>
 										<select
 											name="dogAge"
 											value={formData.dogAge}
 											onChange={handleInputChange}
-											className="w-full p-2 rounded-lg border border-gray-300 focus:border-colorTwo focus:outline-none font-comforta"
+											className="w-full p-3 rounded-brand border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 font-body transition-all"
 										>
 											<option value="">Select age</option>
 											<option value="puppy">
@@ -418,7 +417,7 @@ const Booking = () => {
 
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 									<div>
-										<label className="block text-colorTwo font-bold mb-1 font-comforta">
+										<label className="block text-brand-primary font-heading font-bold mb-1">
 											Phone Number *
 										</label>
 										<input
@@ -427,11 +426,11 @@ const Booking = () => {
 											value={formData.phone}
 											onChange={handleInputChange}
 											required
-											className="w-full p-2 rounded-lg border border-gray-300 focus:border-colorTwo focus:outline-none font-comforta"
+											className="w-full p-3 rounded-brand border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 font-body transition-all"
 										/>
 									</div>
 									<div>
-										<label className="block text-colorTwo font-bold mb-1 font-comforta">
+										<label className="block text-brand-primary font-heading font-bold mb-1">
 											Email *
 										</label>
 										<input
@@ -440,13 +439,13 @@ const Booking = () => {
 											value={formData.email}
 											onChange={handleInputChange}
 											required
-											className="w-full p-2 rounded-lg border border-gray-300 focus:border-colorTwo focus:outline-none font-comforta"
+											className="w-full p-3 rounded-brand border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 font-body transition-all"
 										/>
 									</div>
 								</div>
 
 								<div>
-									<label className="block text-colorTwo font-bold mb-1 font-comforta">
+									<label className="block text-brand-primary font-heading font-bold mb-1">
 										Special Notes
 									</label>
 									<textarea
@@ -455,7 +454,7 @@ const Booking = () => {
 										onChange={handleInputChange}
 										rows="3"
 										placeholder="Any special requirements, favorite toys, or things we should know about your pup?"
-										className="w-full p-2 rounded-lg border border-gray-300 focus:border-colorTwo focus:outline-none font-comforta resize-none"
+										className="w-full p-3 rounded-brand border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 font-body resize-none transition-all"
 									/>
 								</div>
 
@@ -463,11 +462,11 @@ const Booking = () => {
 								{selectedDate &&
 									selectedTime &&
 									selectedService && (
-										<div className="bg-white p-4 rounded-lg">
-											<h3 className="font-bold text-colorTwo mb-2 font-fredoka">
+										<div className="bg-neutral-50 p-5 rounded-brand-lg border-2 border-brand-primary/20">
+											<h3 className="font-heading font-bold text-brand-primary mb-3 text-lg">
 												Booking Summary
 											</h3>
-											<div className="space-y-1 text-sm font-comforta">
+											<div className="space-y-2 text-base font-body text-neutral-600">
 												<p>
 													<strong>Date:</strong>{" "}
 													{format(
@@ -511,7 +510,7 @@ const Booking = () => {
 										!selectedTime ||
 										!selectedService
 									}
-									className="w-full py-3 bg-colorTwo text-colorFive font-fredoka rounded-xl hover:bg-colorFour transition duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+									className="w-full py-4 bg-brand-primary text-neutral-50 font-heading font-bold rounded-brand-lg hover:bg-brand-primaryLight transition-all duration-300 transform hover:scale-105 shadow-brand-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg"
 								>
 									{loading
 										? "Booking..."
@@ -523,13 +522,13 @@ const Booking = () => {
 
 					{/* OOS Overlay */}
 					{OOS && (
-						<div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
-							<div className="bg-white p-6 rounded-xl shadow-md max-w-md text-center relative z-10">
-								<h2 className="text-2xl font-medium mb-2 text-colorFour font-fredoka">
+						<div className="absolute inset-0 flex items-start md:items-center justify-center bg-black bg-opacity-80 rounded-brand-xl pt-4 md:pt-0">
+							<div className="bg-neutral-50 p-6 md:p-8 rounded-brand-xl shadow-brand-xl max-w-md text-center relative z-10 border-4 border-brand-primary/30 mx-4 md:mx-0">
+								<h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-bold mb-4 text-brand-primary">
 									Sorry, I am not accepting new bookings at
 									the moment.
 								</h2>
-								<p className="text-lg text-colorFour font-fredoka">
+								<p className="text-base md:text-lg text-neutral-600 font-body">
 									Please check back later. <br />
 									Thank you for your understanding.
 								</p>
@@ -545,17 +544,17 @@ const Booking = () => {
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 0.5 }}
 				>
-					<div className="bg-white p-8 rounded-xl shadow-lg">
+					<div className="bg-neutral-50 p-8 md:p-10 rounded-brand-xl shadow-brand-xl border-2 border-brand-primary/20">
 						<div className="flex justify-center mb-4">
 							<FontAwesomeIcon
 								icon={faCheck}
-								className="text-green-500 text-6xl"
+								className="text-brand-primary text-6xl"
 							/>
 						</div>
-						<h2 className="text-2xl font-bold text-colorTwo mb-4 font-fredoka">
+						<h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-primary mb-4">
 							Booking Confirmed! 🎉
 						</h2>
-						<p className="text-lg text-colorTwo mb-6 font-comforta">
+						<p className="text-lg md:text-xl text-neutral-600 mb-6 font-body">
 							Thank you for booking with Wiggles & Walks! I'll be
 							in touch shortly to confirm all the details for your
 							pup's perfect walk.
@@ -576,7 +575,7 @@ const Booking = () => {
 									notes: "",
 								});
 							}}
-							className="px-6 py-2 bg-colorTwo text-colorFive font-fredoka rounded-xl hover:bg-colorFour transition"
+							className="px-8 py-3 bg-brand-primary text-neutral-50 font-heading font-bold rounded-brand-lg hover:bg-brand-primaryLight transition-all duration-300 transform hover:scale-105 shadow-brand-lg"
 						>
 							Book Another Walk
 						</button>

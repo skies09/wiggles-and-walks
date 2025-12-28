@@ -9,14 +9,15 @@ const Button = ({ text, className, active = true, action }) => {
 		<>
 			{active && (
 				<motion.button
-					whileTap={{ scale: 0.9 }}
+					whileTap={{ scale: 0.95 }}
 					whileHover={{
-						scale: 1.1,
-						backgroundColor: "#B3DDF2",
-						color: "#5C4033",
-						border: "solid #5C4033 3px",
+						scale: 1.05,
 					}}
-					transition={{ bounceDamping: 10, bounceStiffness: 600 }}
+					transition={{ 
+						bounceDamping: 15, 
+						bounceStiffness: 400,
+						duration: 0.2
+					}}
 					className={className}
 					onClick={() => handleClick(action)}
 				>

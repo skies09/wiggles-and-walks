@@ -8,46 +8,48 @@ const Meet = () => {
 		<section
 			id="meet"
 			ref={ref}
-			className="overflow-x-hidden flex flex-col md:flex-row items-stretch gap-8 border-b-4 border-t-4 border-colorFour"
+			className="overflow-x-hidden flex flex-col md:flex-row items-stretch gap-0 border-b-4 border-t-4 border-brand-primary/30 bg-gradient-to-br from-neutral-50 to-brand-secondaryLight/30"
 		>
 			<motion.div
 				initial={{ opacity: 0, x: 50 }}
 				animate={inView ? { opacity: 1, x: 0 } : {}}
-				transition={{ duration: 0.5 }}
+				transition={{ duration: 0.6 }}
 				viewport={{ once: true }}
-				className="w-full md:w-3/5 px-6 lg:px-8 py-4 flex flex-col justify-start"
+				className="w-full md:w-3/5 px-6 lg:px-12 py-8 md:py-12 flex flex-col justify-center"
 			>
-				<h3 className="text-xl md:text-2xl font-semibold mb-1 font-lobster text-colorTwo">
+				<h3 className="text-3xl md:text-4xl font-heading font-bold mb-2 text-brand-primary">
 					Donna
 				</h3>
-				<p className="text-sm md:text-base font-comforta text-colorFour mb-2">
+				<p className="text-lg md:text-xl font-body text-brand-accent font-semibold mb-4">
 					Founder & Lead Walker
 				</p>
-				<p className="text-colorFour font-poppins text-base mb-2">
+				<p className="text-neutral-600 font-body text-base md:text-lg leading-relaxed mb-4">
 					Armed with a Pet First Aid cert and a whole lotta love, I
 					started Wiggles & Walks because I wanted the kind of care
-					I’d trust for my own dogs, safe, snuggly, and full of
+					I'd trust for my own dogs, safe, snuggly, and full of
 					tail-wagging fun. Every pup gets treated like family, with
 					plenty of love, play, and pampering along the way!
 				</p>
-				<p className="text-base text-colorTwo mb-2">
-					<span className="font-medium text-colorFour">
-						Specialities:
-					</span>{" "}
-					Beagles
-				</p>
+				<div className="mt-4 p-4 bg-brand-secondaryLight/50 rounded-brand-lg border-2 border-brand-primary/20">
+					<p className="text-base md:text-lg text-brand-primary font-heading font-semibold">
+						<span className="text-neutral-600 font-body">
+							Specialities:
+						</span>{" "}
+						Beagles
+					</p>
+				</div>
 			</motion.div>
 			<motion.div
 				initial={{ opacity: 0, x: -50 }}
 				animate={inView ? { opacity: 1, x: 0 } : {}}
-				transition={{ duration: 0.5 }}
+				transition={{ duration: 0.6 }}
 				viewport={{ once: true }}
-				className="w-5/6 mx-auto md:w-2/5 pb-6 md:pb-0 md:bg-colorOne flex justify-center items-center"
+				className="w-full md:w-2/5 pb-6 md:bg-brand-secondaryLight/50 flex justify-center items-center p-8 md:p-12"
 			>
 				<img
 					src="../../assets/images/team.jpeg"
-					alt="About Us"
-					className="rounded-2xl w-auto max-w-[90%] h-4/5 shadow-[20px_20px_20px_rgba(0,0,0,0.25),6px_6px_6px_rgba(0,0,0,0.22)]"
+					alt="Donna - Founder & Lead Walker"
+					className="rounded-brand-xl w-auto max-w-full shadow-brand-xl border-4 border-brand-primary/20"
 				/>
 			</motion.div>
 		</section>
