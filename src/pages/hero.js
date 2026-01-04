@@ -64,7 +64,7 @@ const Hero = () => {
 			<div
 				className="hidden md:block w-screen overflow-hidden h-full bg-cover bg-center bg-gradient-to-br from-brand-secondary/30 to-brand-primary/20 mt-14 -mb-12 relative"
 				style={{
-					backgroundImage: "url(../../assets/images/beagleHero.jpeg)",
+					backgroundImage: "url(../../assets/images/beagleHero1.png)",
 				}}
 				id="hero"
 			>
