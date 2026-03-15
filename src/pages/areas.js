@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaw, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const Areas = () => {
 	const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,29 +20,51 @@ const Areas = () => {
 					transition={{ duration: 0.7 }}
 					viewport={{ once: true }}
 				>
-					<h2 className="text-4xl md:text-5xl font-heading font-bold text-brand-primary mb-6">
-						Areas Covered
-					</h2>
+					<div className="flex items-center gap-3 mb-6">
+						<FontAwesomeIcon
+							icon={faLocationDot}
+							className="text-brand-accent text-3xl"
+						/>
+						<h2 className="text-4xl md:text-5xl font-heading font-bold text-brand-primary">
+							We Come to You!
+						</h2>
+					</div>
 					<p className="text-lg md:text-xl text-neutral-600 mb-6 font-body leading-relaxed">
-						We provide services across various regions across North
-						West England. <br />
-						Check out the map to see if we cover your area.
+						Based in{" "}
+						<strong className="text-brand-primary">
+							Warrington
+						</strong>
+						, we cover a wide area across North West England —
+						within a 25-mile radius! If your pup is nearby, we'd
+						love to meet them. 🐾
 					</p>
 					<ul className="text-lg md:text-xl text-neutral-600 font-body space-y-3">
-						{["Warrington", "Wigan", "Liverpool", "Manchester"].map((area, index) => (
-							<motion.li
-								key={area}
-								initial={{ opacity: 0, x: -20 }}
-								animate={inView ? { opacity: 1, x: 0 } : {}}
-								transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-								viewport={{ once: true }}
-								className="flex items-center gap-3"
-							>
-								<span className="text-brand-accent text-2xl">•</span>
-								{area}
-							</motion.li>
-						))}
+						{["Warrington", "Wigan", "Liverpool", "Manchester"].map(
+							(area, index) => (
+								<motion.li
+									key={area}
+									initial={{ opacity: 0, x: -20 }}
+									animate={inView ? { opacity: 1, x: 0 } : {}}
+									transition={{
+										duration: 0.5,
+										delay: 0.2 + index * 0.1,
+									}}
+									viewport={{ once: true }}
+									className="flex items-center gap-3"
+								>
+									<FontAwesomeIcon
+										icon={faPaw}
+										className="text-brand-accent text-lg"
+									/>
+									{area}
+								</motion.li>
+							),
+						)}
 					</ul>
+					<p className="mt-6 text-base text-neutral-500 font-body italic">
+						Not sure if we cover your area? Drop us a message —
+						we're always happy to chat!
+					</p>
 				</motion.div>
 
 				{/* Map */}
@@ -51,13 +75,16 @@ const Areas = () => {
 					transition={{ duration: 0.7 }}
 					viewport={{ once: true }}
 				>
-					<div className="relative h-64 md:h-80 justify-center flex rounded-brand-lg overflow-hidden shadow-brand-lg border-4 border-brand-primary/20">
+					<div className="relative justify-center flex rounded-brand-lg overflow-hidden shadow-brand-lg border-4 border-brand-primary/20">
 						<img
-							src="../../assets/images/area.png"
-							alt="Service areas map"
-							className="w-full h-full object-cover rounded-brand-lg"
+							src="../../assets/images/warrington-radius-map.png"
+							alt="Warrington 25-mile service area map"
+							className="w-full h-full object-cover"
 						/>
 					</div>
+					<p className="text-center text-sm text-neutral-500 font-body mt-3 italic">
+						Our 25-mile service radius from Warrington
+					</p>
 				</motion.div>
 			</div>
 		</section>

@@ -17,9 +17,11 @@ const Hero = () => {
 							Wiggles & Walks
 						</h1>
 						<div className="flex items-center gap-2 m-2">
+							<FontAwesomeIcon icon={faPaw} className="text-brand-accent text-xl md:text-2xl" />
 							<span className="font-accent text-lg md:text-2xl text-brand-primary font-medium">
 								Beagle Boarding
 							</span>
+							<FontAwesomeIcon icon={faPaw} className="text-brand-accent text-xl md:text-2xl" />
 						</div>
 					</div>
 				</motion.div>
@@ -35,6 +37,9 @@ const Hero = () => {
 						<span className="block md:inline">
 							Home Boarding Service
 						</span>
+					</span>
+					<span className="block font-body text-base md:text-lg m-2 text-neutral-600 italic">
+						Where every dog is treated like family 🐾
 					</span>
 				</motion.p>
 			</div>
@@ -107,14 +112,19 @@ const Hero = () => {
 							Wiggles & Walks
 						</h1>
 						<div className="flex items-center gap-2 mb-4">
+							<FontAwesomeIcon icon={faPaw} className="text-brand-accent text-lg" />
 							<span className="font-accent text-lg text-brand-primary font-medium">
 								Beagle Boarding
 							</span>
+							<FontAwesomeIcon icon={faPaw} className="text-brand-accent text-lg" />
 						</div>
-						<p className="font-heading text-xl text-neutral-600 font-semibold text-center mb-6">
+						<p className="font-heading text-xl text-neutral-600 font-semibold text-center mb-2">
 							<span className="block">Dog Walking</span>
 							<span className="block">&</span>
 							<span className="block">Home Boarding Service</span>
+						</p>
+						<p className="font-body text-sm text-neutral-500 italic text-center mb-6">
+							Where every dog is treated like family 🐾
 						</p>
 						<div className="w-full flex justify-center">
 							<Button

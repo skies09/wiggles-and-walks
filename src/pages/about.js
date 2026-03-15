@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
 	const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -38,14 +40,18 @@ const About = () => {
 					</span>
 				</h2>
 				<p className="text-lg lg:text-xl text-neutral-600 font-body leading-relaxed lg:pr-8 mt-4">
-					We totally get it, your dog isn't just a pet, they're
-					full-blown family (and probably the favorite, let's be
-					honest). That's why we treat every pup like one of my own,
+					We totally get it — your dog isn't just a pet, they're
+					full-blown family (and probably the favourite, let's be
+					honest 😄). That's why we treat every pup like one of our own,
 					with plenty of love and belly rubs. Whether we're out for a
 					sniff-filled stroll, having a zoomie session, or just
 					soaking up some cuddle time, your dog will be showered with
 					the best care and attention every step of the way.
 				</p>
+				<div className="mt-6 flex items-center gap-2 text-brand-primary font-heading font-semibold text-lg">
+					<FontAwesomeIcon icon={faHeart} className="text-brand-accent text-xl" />
+					<span>Happy dogs, happy hearts!</span>
+				</div>
 			</motion.div>
 		</section>
 	);

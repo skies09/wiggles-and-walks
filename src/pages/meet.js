@@ -47,7 +47,7 @@ const Meet = () => {
 				className="w-full md:w-2/5 pb-6 md:bg-brand-secondaryLight/50 flex justify-center items-center p-8 md:p-12"
 			>
 				<img
-					src="../../assets/images/team.jpeg"
+					src="../../assets/images/team1.png"
 					alt="Donna - Founder & Lead Walker"
 					className="rounded-brand-xl w-auto max-w-full shadow-brand-xl border-4 border-brand-primary/20"
 				/>

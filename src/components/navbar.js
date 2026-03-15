@@ -12,6 +12,7 @@ const Navbar = ({ menuOpen, setMenuOpen }) => {
 						className="flex items-center font-heading text-xl font-bold text-brand-primary ml-6 tracking-tight hover:text-brand-primaryDark transition-colors duration-300"
 					>
 						<span className="flex items-center gap-2">
+							<FontAwesomeIcon icon={faPaw} className="text-brand-accent text-lg" />
 							Wiggles & Walks
 						</span>
 					</a>

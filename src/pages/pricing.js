@@ -54,11 +54,11 @@ const Pricing = () => {
 				>
 					Transparent pricing for all our care services
 				</motion.p>
-				<div className="grid md:grid-cols-3 gap-8">
+				<div className="grid md:grid-cols-3 gap-8 md:items-stretch">
 					{services.map((service, index) => (
 						<motion.div
 							key={index}
-							className="card-brand overflow-hidden border-2 border-brand-primary/20 hover:border-brand-primary/50"
+							className="card-brand overflow-hidden border-2 border-brand-primary/20 hover:border-brand-primary/50 flex flex-col h-full"
 							initial={{ opacity: 0, y: 30 }}
 							animate={inView ? { opacity: 1, y: 0 } : {}}
 							transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -67,24 +67,30 @@ const Pricing = () => {
 							<img
 								src={service.image}
 								alt={service.name}
-								className="w-full h-56 object-cover rounded-brand-lg mb-6"
+								className="w-full h-56 object-cover rounded-brand-lg shrink-0"
 							/>
-							<div className="p-2">
+							<div className="p-2 pt-6 flex flex-col flex-1 min-h-0">
 								<h3 className="text-2xl font-heading font-bold mb-3 text-brand-primary">
 									{service.name}
 								</h3>
-								<p className="text-neutral-600 font-body mb-4 leading-relaxed">
+								<p className="text-neutral-600 font-body mb-4 leading-relaxed flex-1">
 									{service.description}
 								</p>
-								<div className="border-t-2 border-brand-primary/20 pt-4">
-									<ul className="text-brand-primaryDark font-body text-lg font-semibold space-y-2">
-										{service.prices.map((price, i) => (
-											<li key={i} className="flex items-center gap-2">
-												<span className="text-brand-accent">•</span>
-												{price}
-											</li>
-										))}
-									</ul>
+								<div className="mt-auto border-t-2 border-brand-primary/20 pt-4 flex flex-col gap-1">
+									{service.prices.map((price, i) => (
+										<div
+											key={i}
+											className="text-brand-primaryDark font-body text-lg font-semibold"
+										>
+											{price}
+										</div>
+									))}
+									{service.prices.length === 1 ? (
+										<div
+											className="min-h-[1.75rem] md:min-h-[2rem]"
+											aria-hidden
+										/>
+									) : null}
 								</div>
 							</div>
 						</motion.div>

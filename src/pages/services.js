@@ -23,9 +23,9 @@ const Services = () => {
 						Tailored Beagle Care Services
 					</h2>
 					<p className="text-lg md:text-xl text-neutral-600 font-body max-w-2xl mx-auto">
-						Walks, snuggles, and all the cozy home vibes, because your
-						dog deserves nothing less than the absolute best (and maybe
-						a treat or two)!
+						Walks, snuggles, and all the cozy home vibes, because
+						your dog deserves nothing less than the absolute best
+						(and maybe a treat or two)!
 					</p>
 				</motion.div>
 
@@ -48,10 +48,10 @@ const Services = () => {
 							Expert Beagle Care
 						</h3>
 						<p className="text-neutral-600 font-body text-base md:text-lg leading-relaxed">
-							Beagles are our jam! Our services are specially tailored
-							for those curious noses and wagging tails, making sure
-							every beagle gets the love, care, and adventure they
-							crave.
+							Beagles are our jam! Our services are specially
+							tailored for those curious noses and wagging tails,
+							making sure every beagle gets the love, care, and
+							adventure they crave.
 						</p>
 					</motion.div>
 
@@ -72,10 +72,10 @@ const Services = () => {
 							Home Boarding Options
 						</h3>
 						<p className="text-neutral-600 font-body text-base md:text-lg leading-relaxed">
-							Your pup can lounge like royalty, sofas, beds, and all
-							the comfy spots are fair game! They're free to roam just
-							like they do at home (minus the mischief, we keep
-							anything tempting out of paw's reach!).
+							Your pup can lounge like royalty, sofas, beds, and
+							all the comfy spots are fair game! They're free to
+							roam just like they do at home (minus the mischief,
+							we keep anything tempting out of paw's reach!).
 						</p>
 					</motion.div>
 
@@ -96,10 +96,10 @@ const Services = () => {
 							Trusted and Reliable
 						</h3>
 						<p className="text-neutral-600 font-body text-base md:text-lg leading-relaxed">
-							Rest assured that your furry friend is getting all the
-							love, belly rubs and tail-wagging fun they deserve! All
-							dogs are safe, happy and totally spoiled in a warm,
-							loving environment.
+							Rest assured that your furry friend is getting all
+							the love, belly rubs and tail-wagging fun they
+							deserve! All dogs are safe, happy and totally
+							spoiled in a warm, loving environment.
 						</p>
 					</motion.div>
 
@@ -121,9 +121,9 @@ const Services = () => {
 						</h3>
 						<p className="text-neutral-600 font-body text-base md:text-lg leading-relaxed">
 							Sniffing is totally encouraged, after all, it's your
-							dog's version of social media! We only walk pups from
-							the same household together, and everyone stays safely
-							on-lead for happy, tail-wagging adventures.
+							dog's version of social media! We only walk pups
+							from the same household together, and everyone stays
+							safely on-lead for happy, tail-wagging adventures.
 						</p>
 					</motion.div>
 				</div>

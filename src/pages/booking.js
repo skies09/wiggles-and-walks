@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faPaw,
-	faHeart,
 	faCalendar,
-	faClock,
 	faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import Calendar from "react-calendar";
-import { format, addDays, isSameDay, isBefore, startOfDay } from "date-fns";
+import { format, isBefore, startOfDay } from "date-fns";
 // import { collection, addDoc, getDocs, query, where, orderBy, serverTimestamp } from "firebase/firestore";
 // import { db } from "../firebase";
 import "react-calendar/dist/Calendar.css";
@@ -90,15 +88,6 @@ const Booking = () => {
 			(booking) => booking.date === dateStr
 		);
 		return dayBookings.length < 6; // Max 6 bookings per day
-	};
-
-	// Check if a specific time slot is available
-	const isTimeSlotAvailable = (date, time) => {
-		if (!date || !time) return false;
-		const dateStr = format(date, "yyyy-MM-dd");
-		return !bookings.some(
-			(booking) => booking.date === dateStr && booking.time === time
-		);
 	};
 
 	// Get available time slots for selected date

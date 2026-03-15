@@ -1,42 +1,50 @@
-# Wiggles & Walks - Dog Walking Website
+# Wiggles & Walks – Beagle Boarding & Dog Walking
 
-A beautiful, responsive dog walking website with integrated booking system.
+This repo contains the marketing site for **Wiggles & Walks**, a friendly beagle‑specialist dog walking and home‑boarding service based in **Warrington, UK** (covering roughly a 25‑mile radius including Liverpool, Manchester, Wigan and surrounding areas).
 
-## Features
+The site is a **single‑page React app** with smooth animations, a branded areas‑covered map, and optional booking / contact flows backed by Firebase and EmailJS.
 
-- 🐕 **Personalized Contact Form** - Dog-focused contact form with breed, age, and service selection
-- 📅 **Booking System** - Interactive calendar with real-time availability checking
-- 🎨 **Modern Design** - Beautiful UI with animations and responsive design
-- 📱 **Mobile Friendly** - Works perfectly on all devices
-- 🔥 **Firebase Integration** - Free, scalable backend for bookings
-- 👨‍💼 **Admin Dashboard** - Manage bookings, view statistics, and update statuses
+## Tech Stack
 
-## Booking System Features
+- **React (Create React App)**
+- **Tailwind CSS** with a custom Wiggles & Walks design system
+- **Framer Motion** for animations
+- **Firebase Firestore** for storing bookings (optional)
+- **EmailJS** for contact form delivery (optional)
 
-- **Real-time Availability** - Greyed out dates show booking capacity
-- **Time Slot Management** - Prevents double bookings
-- **Service Selection** - Multiple service types with pricing
-- **Dog Information** - Collect breed, age, and special requirements
-- **Admin Management** - View, confirm, and manage all bookings
-- **Status Tracking** - Pending, confirmed, completed, cancelled
+## Key Features
 
-## Setup Instructions
+- **Beagle‑focused marketing site**
+  - Hero section with friendly branding and call‑to‑action
+  - Service highlights: expert walking, cosy home boarding, first‑aid certified care
+  - Photo gallery, testimonials, FAQs and pricing
+- **Areas covered**
+  - Custom illustrated map centred on Warrington
+  - Visual 25‑mile radius, with nearby towns labelled
+- **Booking system (optional)**
+  - Calendar picker with per‑day capacity limits
+  - Service selection, dog details and owner information
+  - Admin dashboard for viewing and updating booking statuses
+- **Contact form (optional)**
+  - Validated form (Formik + Yup)
+  - Sends enquiries via EmailJS when configured
 
-### 1. Firebase Setup (Free)
+> **Note:** In this repo the booking and contact flows can be toggled off for “informational only” use. Check `booking.js` and `contact.js` for any `OOS` flags or commented‑out Firebase/EmailJS code if you want to re‑enable them.
 
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Create a new project
-3. Enable Firestore Database
-4. Go to Project Settings > General
-5. Add a web app to your project
-6. Copy the Firebase config
+## Getting Started
 
-### 2. Environment Variables
+### 1. Install dependencies
 
-Create a `.env` file in the root directory:
+```bash
+npm install
+```
+
+### 2. Environment variables (optional, for bookings/contact)
+
+Create a `.env` file in the project root:
 
 ```env
-# Firebase Configuration
+# Firebase Configuration (for bookings / admin)
 REACT_APP_FIREBASE_API_KEY=your_api_key_here
 REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 REACT_APP_FIREBASE_PROJECT_ID=your_project_id
@@ -50,109 +58,61 @@ REACT_APP_EMAIL_TEMPLATE_KEY=your_email_template_key
 REACT_APP_EMAIL_KEY=your_email_key
 ```
 
-### 3. Firestore Security Rules
+If you just want a static marketing site, you can skip these and leave the booking/contact logic disabled.
 
-In Firebase Console > Firestore Database > Rules, set these rules:
+### 3. (Optional) Firestore security rules
+
+In Firebase Console → Firestore Database → **Rules**:
 
 ```javascript
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /bookings/{booking} {
-      allow read, write: if true; // For demo - add authentication later
+      allow read, write: if true; // Demo only – lock this down for production
     }
   }
 }
 ```
 
-### 4. Install Dependencies
-
-```bash
-npm install
-```
-
-### 5. Run the Application
+### 4. Run the app locally
 
 ```bash
 npm start
 ```
 
-## Usage
+This starts the dev server on `http://localhost:3000`.
 
-### For Customers
-1. Navigate to the contact section
-2. Fill out the personalized form with dog details
-3. Or use the booking system for direct scheduling
+## Project Structure (high level)
 
-### For Admin
-1. Access `/admin` route (you can add this to your navigation)
-2. View all bookings with filtering options
-3. Confirm, complete, or cancel bookings
-4. View booking statistics
+- `src/App.js` – assembles all page sections
+- `src/pages/*` – hero, about, services, gallery, areas, pricing, booking, FAQs, contact, admin
+- `src/components/*` – navbar, mobile menu, social links, CTA button, feature icon strip
+- `public/assets/images/*` – beagle photos and the Warrington 25‑mile map image
 
 ## Deployment
 
-### Firebase Hosting (Recommended)
+The app is configured for **Firebase Hosting**, but you can deploy any static host.
 
-1. Install Firebase CLI:
+### Firebase Hosting
+
 ```bash
+# one‑time
 npm install -g firebase-tools
-```
-
-2. Login and initialize:
-```bash
 firebase login
 firebase init hosting
-```
 
-3. Build and deploy:
-```bash
+# each deploy
 npm run build
 firebase deploy
 ```
 
-## Customization
+## Customisation Tips
 
-### Services & Pricing
-Edit the services array in `src/pages/booking.js`:
-
-```javascript
-const services = [
-  { id: "walk_30", name: "Dog Walking (30 mins)", price: "£12", emoji: "🐕" },
-  { id: "walk_60", name: "Dog Walking (1 hour)", price: "£18", emoji: "🐕" },
-  // Add more services here
-];
-```
-
-### Time Slots
-Modify the timeSlots array in `src/pages/booking.js`:
-
-```javascript
-const timeSlots = [
-  "07:00", "08:00", "09:00", "10:00", "11:00", 
-  "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"
-];
-```
-
-### Booking Limits
-Change the maximum bookings per day in `src/pages/booking.js`:
-
-```javascript
-return dayBookings.length < 6; // Change 6 to your preferred limit
-```
-
-## Cost Breakdown
-
-- **Firebase Firestore**: Free tier includes 1GB storage and 50,000 reads/day
-- **Firebase Hosting**: Free tier includes 10GB storage and 360MB/day transfer
-- **EmailJS**: Free tier includes 200 emails/month
-
-For a small dog walking business, the free tiers should be more than sufficient!
-
-## Support
-
-If you need help setting up Firebase or customizing the booking system, feel free to reach out!
+- **Branding & copy** – update text and imagery in the `src/pages` components.
+- **Services & pricing** – edit `pricing.js` (and booking‑related config if you enable online booking).
+- **Areas covered map** – replace `public/assets/images/warrington-radius-map.png` with your own map, keeping the same filename to avoid code changes.
 
 ---
 
-Built with ❤️ for dog lovers everywhere! 🐾
+Built with ❤️ for beagles, dog lovers, and their humans. 🐾
