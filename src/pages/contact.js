@@ -385,18 +385,37 @@ const Contact = () => {
 								<p className="text-sm text-neutral-500 font-body mb-1 w-full text-left">
 									Optional. We'll confirm before anything is held.
 								</p>
-								<div className="relative mt-1 w-full min-w-0 overflow-hidden rounded-brand border-2 border-neutral-300 focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20 transition-all bg-white">
-									<Field
-										className="date-field relative h-12 w-full min-w-0 border-0 bg-transparent pl-4 pr-12 font-body focus:outline-none focus:ring-0"
-										type="date"
-										id="preferred_date"
-										name="preferred_date"
-									/>
-									<Icon
-										name="calendar"
-										size="sm"
-										className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500"
-									/>
+								<div className="relative mt-1 flex h-12 w-full min-w-0 items-center overflow-hidden rounded-brand border-2 border-neutral-300 bg-white pl-4 pr-12 focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20 transition-all">
+									<Field name="preferred_date">
+										{({ field }) => {
+											const displayDate = field.value
+												? new Date(`${field.value}T00:00:00`).toLocaleDateString("en-GB")
+												: "dd/mm/yyyy";
+											return (
+												<>
+													<span
+														className={`pointer-events-none min-w-0 truncate font-body ${
+															field.value ? "text-neutral-800" : "text-neutral-400"
+														}`}
+													>
+														{displayDate}
+													</span>
+													<input
+														{...field}
+														id="preferred_date"
+														type="date"
+														aria-label="Preferred date"
+														className="date-field"
+													/>
+													<Icon
+														name="calendar"
+														size="sm"
+														className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500"
+													/>
+												</>
+											);
+										}}
+									</Field>
 								</div>
 							</div>
 							<div className="flex flex-col w-full min-w-0 lg:w-1/2">

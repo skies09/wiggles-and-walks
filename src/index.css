@@ -49,28 +49,17 @@
 	}
 
 	.date-field {
-		display: block;
+		position: absolute;
+		inset: 0;
 		width: 100%;
-		min-width: 0;
-		max-width: 100%;
-		box-sizing: border-box;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		opacity: 0;
+		cursor: pointer;
 		-webkit-appearance: none;
 		appearance: none;
-	}
-
-	.date-field::-webkit-date-and-time-value {
-		min-width: 0;
-		text-align: left;
-	}
-
-	.date-field::-webkit-datetime-edit,
-	.date-field::-webkit-datetime-edit-fields-wrapper,
-	.date-field::-webkit-datetime-edit-text,
-	.date-field::-webkit-datetime-edit-month-field,
-	.date-field::-webkit-datetime-edit-day-field,
-	.date-field::-webkit-datetime-edit-year-field {
-		min-width: 0;
-		padding: 0;
 	}
 
 	.date-field::-webkit-calendar-picker-indicator {
@@ -81,7 +70,6 @@
 		margin: 0;
 		padding: 0;
 		cursor: pointer;
-		opacity: 0;
 	}
 
 	a:focus-visible,
