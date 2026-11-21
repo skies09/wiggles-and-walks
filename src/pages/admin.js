@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaw, faCheck, faTimes, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../components/icons";
 import { collection, getDocs, updateDoc, deleteDoc, doc, query, orderBy, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { format } from "date-fns";
@@ -104,7 +103,11 @@ const Admin = () => {
 			>
 				Admin Dashboard
 				<br />
-				🐾 Manage Your Bookings 🐾
+				<span className="inline-flex items-center justify-center gap-2">
+					<Icon name="paw" size="md" className="text-brand-accent" />
+					Manage Your Bookings
+					<Icon name="paw" size="md" className="text-brand-accent" />
+				</span>
 			</motion.div>
 
 			<div className="w-full lg:w-4/5 xl:w-3/4 mx-auto px-4">
@@ -200,12 +203,14 @@ const Admin = () => {
 												<div className="font-bold text-colorTwo">
 													{booking.ownerName}
 												</div>
-												<div className="text-sm text-gray-600">
-													🐕 {booking.dogName}
+												<div className="text-sm text-gray-600 inline-flex items-center gap-1">
+													<Icon name="dog" size="sm" className="text-brand-accent" />
+													{booking.dogName}
 													{booking.dogBreed && ` (${booking.dogBreed})`}
 												</div>
-												<div className="text-xs text-gray-500">
-													📞 {booking.phone}
+												<div className="text-xs text-gray-500 inline-flex items-center gap-1">
+													<Icon name="phone" size="sm" className="text-brand-accent" />
+													{booking.phone}
 												</div>
 											</div>
 										</td>
@@ -228,7 +233,7 @@ const Admin = () => {
 													className="p-1 text-blue-600 hover:text-blue-800"
 													title="View Details"
 												>
-													<FontAwesomeIcon icon={faEye} />
+													<Icon name="eye" size="sm" />
 												</button>
 												{booking.status === "pending" && (
 													<>
@@ -237,14 +242,14 @@ const Admin = () => {
 															className="p-1 text-green-600 hover:text-green-800"
 															title="Confirm"
 														>
-															<FontAwesomeIcon icon={faCheck} />
+															<Icon name="check" size="sm" />
 														</button>
 														<button
 															onClick={() => updateBookingStatus(booking.id, "cancelled")}
 															className="p-1 text-red-600 hover:text-red-800"
 															title="Cancel"
 														>
-															<FontAwesomeIcon icon={faTimes} />
+															<Icon name="close" size="sm" />
 														</button>
 													</>
 												)}
@@ -254,7 +259,7 @@ const Admin = () => {
 														className="p-1 text-blue-600 hover:text-blue-800"
 														title="Mark Complete"
 													>
-														<FontAwesomeIcon icon={faCheck} />
+														<Icon name="check" size="sm" />
 													</button>
 												)}
 												<button
@@ -262,7 +267,7 @@ const Admin = () => {
 													className="p-1 text-red-600 hover:text-red-800"
 													title="Delete"
 												>
-													<FontAwesomeIcon icon={faTrash} />
+													<Icon name="trash" size="sm" />
 												</button>
 											</div>
 										</td>
@@ -294,7 +299,7 @@ const Admin = () => {
 								onClick={() => setSelectedBooking(null)}
 								className="text-gray-500 hover:text-gray-700"
 							>
-								<FontAwesomeIcon icon={faTimes} />
+								<Icon name="close" size="md" />
 							</button>
 						</div>
 						

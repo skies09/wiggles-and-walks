@@ -9,32 +9,30 @@ import About from "./pages/about";
 import Reviews from "./pages/reviews";
 import Faqs from "./pages/faqs";
 import Meet from "./pages/meet";
-import Services from "./pages/services";
 import Areas from "./pages/areas";
 import Pricing from "./pages/pricing";
 import Gallery from "./pages/gallery";
-import Booking from "./pages/booking";
+import Footer from "./components/Footer";
 
 export default function App() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
-		<div className="overflow-x-hidden min-h-screen">
+		<div className="min-h-screen">
 			<Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 			<Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-			<div className="relative w-full min-h-screen snap-mandatory snap-y -mt-8 overflow-x-hidden">
+			<div className="relative w-full min-h-screen">
 				<Hero />
 				<IconCloud />
-				<About />
-				<Services />
-				<Meet />
+				<Pricing />
 				<Reviews />
+				<Meet />
+				<About />
 				<Gallery />
 				<Areas />
-				<Pricing />
-				<Booking />
 				<Faqs />
 				<Contact />
+				<Footer />
 			</div>
 		</div>
 	);

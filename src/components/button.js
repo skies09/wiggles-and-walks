@@ -11,7 +11,7 @@ const Button = ({ text, className, active = true, action }) => {
 				<motion.button
 					whileTap={{ scale: 0.95 }}
 					whileHover={{
-						scale: 1.05,
+						scale: 1.02,
 					}}
 					transition={{ 
 						bounceDamping: 15, 

@@ -1,6 +1,6 @@
 # Wiggles & Walks – Beagle Boarding & Dog Walking
 
-This repo contains the marketing site for **Wiggles & Walks**, a friendly beagle‑specialist dog walking and home‑boarding service based in **Warrington, UK** (covering roughly a 25‑mile radius including Liverpool, Manchester, Wigan and surrounding areas).
+This repo contains the marketing site for **Wiggles & Walks**, a friendly beagle‑specialist dog walking and home‑boarding service based in **Warrington, UK** (covering roughly a 40‑mile radius from Warrington, including Liverpool, Manchester, Wigan, Chester, Preston and surrounding areas).
 
 The site is a **single‑page React app** with smooth animations, a branded areas‑covered map, and optional booking / contact flows backed by Firebase and EmailJS.
 
@@ -20,7 +20,7 @@ The site is a **single‑page React app** with smooth animations, a branded area
   - Photo gallery, testimonials, FAQs and pricing
 - **Areas covered**
   - Custom illustrated map centred on Warrington
-  - Visual 25‑mile radius, with nearby towns labelled
+  - Visual 40‑mile radius map, with nearby towns labelled
 - **Booking system (optional)**
   - Calendar picker with per‑day capacity limits
   - Service selection, dog details and owner information
@@ -88,7 +88,7 @@ This starts the dev server on `http://localhost:3000`.
 - `src/App.js` – assembles all page sections
 - `src/pages/*` – hero, about, services, gallery, areas, pricing, booking, FAQs, contact, admin
 - `src/components/*` – navbar, mobile menu, social links, CTA button, feature icon strip
-- `public/assets/images/*` – beagle photos and the Warrington 25‑mile map image
+- `public/assets/images/*` – beagle photos and the Warrington 40‑mile radius map (SVG)
 
 ## Deployment
 
@@ -111,8 +111,8 @@ firebase deploy
 
 - **Branding & copy** – update text and imagery in the `src/pages` components.
 - **Services & pricing** – edit `pricing.js` (and booking‑related config if you enable online booking).
-- **Areas covered map** – replace `public/assets/images/warrington-radius-map.png` with your own map, keeping the same filename to avoid code changes.
+- **Areas covered map** – replace `public/assets/images/warrington-radius-map.svg` with your own map, keeping the same filename to avoid code changes.
 
 ---
 
-Built with ❤️ for beagles, dog lovers, and their humans. 🐾
+Built for beagles, dog lovers, and their humans.

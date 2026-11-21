@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../components/icons";
 import { useInView } from "react-intersection-observer";
+import { BUSINESS } from "../config/business";
+import SectionCTA from "../components/SectionCTA";
 
 const faqs = [
 	{
 		question: "What areas do you cover for dog walking?",
-		answer: "We currently cover Manchester UK and surrounding areas.",
+		answer: `We're based in ${BUSINESS.location} and cover a ${BUSINESS.serviceRadiusMiles}-mile radius across ${BUSINESS.region}, including ${BUSINESS.areas.slice(0, 4).join(", ")} and surrounding areas. Not sure if we cover your area? Drop us a message — we're always happy to chat!`,
 	},
 	{
 		question: "My dog is reactive, how will you walk them?",
@@ -37,8 +38,9 @@ const Faqs = () => {
 
 	return (
 		<section
+			id="faqs"
 			ref={ref}
-			className="section-brand bg-gradient-to-br from-neutral-50 to-brand-secondaryLight/20 border-b-4 border-t-4 border-brand-primary/30"
+			className="section-brand bg-neutral-50"
 		>
 			<div className="max-w-4xl mx-auto">
 				<motion.h2
@@ -46,7 +48,7 @@ const Faqs = () => {
 					animate={inView ? { opacity: 1, y: 0 } : {}}
 					transition={{ duration: 0.6 }}
 					viewport={{ once: true }}
-					className="text-4xl md:text-5xl font-heading font-bold text-center mb-4 text-brand-primary"
+					className="section-title"
 				>
 					Frequently Asked Questions
 				</motion.h2>
@@ -55,7 +57,7 @@ const Faqs = () => {
 					animate={inView ? { opacity: 1 } : {}}
 					transition={{ duration: 0.6, delay: 0.2 }}
 					viewport={{ once: true }}
-					className="text-center text-neutral-600 font-body text-lg mb-12"
+					className="section-intro"
 				>
 					Everything you need to know
 				</motion.p>
@@ -63,25 +65,21 @@ const Faqs = () => {
 					{faqs.map((faq, index) => (
 						<motion.div
 							key={index}
-							className="card-brand cursor-pointer border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300"
+							className="card-brand cursor-pointer hover:border-brand-primary/30 transition-colors duration-200"
 							onClick={() => toggleFAQ(index)}
 							initial={{ opacity: 0, y: 20 }}
 							animate={inView ? { opacity: 1, y: 0 } : {}}
 							transition={{ duration: 0.5, delay: index * 0.1 }}
 							viewport={{ once: true }}
-							whileHover={{ scale: 1.02 }}
 						>
 							<div className="flex justify-between items-center">
-								<h3 className="text-lg md:text-xl font-heading font-semibold text-brand-primary pr-4">
+								<h3 className="text-lg md:text-xl font-heading text-neutral-900 pr-4">
 									{faq.question}
 								</h3>
-								<FontAwesomeIcon
-									icon={
-										openIndex === index
-											? faChevronUp
-											: faChevronDown
-									}
-									className="text-brand-primary flex-shrink-0"
+								<Icon
+									name={openIndex === index ? "chevronUp" : "chevronDown"}
+									size="md"
+									className="text-brand-accent flex-shrink-0"
 								/>
 							</div>
 							<AnimatePresence>
@@ -100,6 +98,13 @@ const Faqs = () => {
 						</motion.div>
 					))}
 				</div>
+
+				<SectionCTA
+					heading="Ready when you are"
+					subtext="A free meet and greet is the first step. No obligation."
+					primaryText="Book a free meet & greet"
+					primaryAction="contact"
+				/>
 			</div>
 		</section>
 	);

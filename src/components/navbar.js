@@ -1,63 +1,51 @@
 import { motion } from "framer-motion";
-import { faPaw, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Icon from "./icons";
 
 const Navbar = ({ menuOpen, setMenuOpen }) => {
 	return (
-		<div className="w-full h-14 bg-brand-secondary fixed top-0 z-50 shadow-brand-soft border-b-2 border-brand-primary/20">
-			<div className="flex justify-between items-center h-full">
-				<div className="flex items-center justify-center">
+		<div className="w-full h-16 bg-neutral-50/95 backdrop-blur-md fixed top-0 z-50 border-b border-neutral-200">
+			<div className="max-w-6xl mx-auto flex justify-between items-center h-full pl-5 pr-3 md:px-8">
+				<div className="flex items-center justify-center min-w-0">
 					<a
 						href="#hero"
-						className="flex items-center font-heading text-xl font-bold text-brand-primary ml-6 tracking-tight hover:text-brand-primaryDark transition-colors duration-300"
+						className="flex items-center font-heading text-xl font-semibold text-neutral-900 tracking-tight hover:text-brand-primary transition-colors duration-200"
 					>
-						<span className="flex items-center gap-2">
-							<FontAwesomeIcon icon={faPaw} className="text-brand-accent text-lg" />
+						<span className="flex items-center gap-2.5">
+							<Icon name="paw" size="md" className="text-brand-accent" />
 							Wiggles & Walks
 						</span>
 					</a>
 				</div>
-				<div className="hidden md:flex items-center space-x-8 mr-8">
-					<a
-						href="#about"
-						className="font-heading font-medium text-brand-primary hover:text-brand-primaryDark transition-colors duration-300 relative group"
-					>
-						About
-						<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
-					</a>
-					<a
-						href="#services"
-						className="font-heading font-medium text-brand-primary hover:text-brand-primaryDark transition-colors duration-300 relative group"
-					>
-						Services
-						<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
-					</a>
-					<a
-						href="#gallery"
-						className="font-heading font-medium text-brand-primary hover:text-brand-primaryDark transition-colors duration-300 relative group"
-					>
-						Gallery
-						<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
-					</a>
-					<a
-						href="#pricing"
-						className="font-heading font-medium text-brand-primary hover:text-brand-primaryDark transition-colors duration-300 relative group"
-					>
-						Pricing
-						<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
-					</a>
+				<div className="hidden lg:flex items-center gap-6">
+					{[
+						{ label: "Services", href: "#services" },
+						{ label: "Reviews", href: "#reviews" },
+						{ label: "About", href: "#about" },
+						{ label: "Gallery", href: "#gallery" },
+					].map((link) => (
+						<a
+							key={link.href}
+							href={link.href}
+							className="font-body font-semibold text-neutral-700 hover:text-brand-primary transition-colors duration-200 relative group text-sm"
+						>
+							{link.label}
+							<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
+						</a>
+					))}
 					<a
 						href="#contact"
-						className="font-heading font-medium text-brand-primary hover:text-brand-primaryDark transition-colors duration-300 relative group"
+						className="ml-2 px-5 py-2 bg-brand-primary text-white font-body font-semibold rounded-full text-sm hover:bg-brand-primaryLight transition-colors duration-200 shadow-brand"
 					>
-						Contact
-						<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
+						Book now
 					</a>
 				</div>
-				<div className="mr-4 w-8 h-8 flex items-center md:hidden">
-					<div
-						className="relative w-8 h-6 flex flex-col justify-between cursor-pointer"
+				<div className="flex items-center lg:hidden">
+					<button
+						type="button"
+						className="relative flex h-10 w-10 items-center justify-center cursor-pointer"
 						onClick={() => setMenuOpen(!menuOpen)}
+						aria-label={menuOpen ? "Close menu" : "Open menu"}
+						aria-expanded={menuOpen}
 					>
 						<motion.div
 							initial={{ opacity: 0, rotate: 0 }}
@@ -67,13 +55,9 @@ const Navbar = ({ menuOpen, setMenuOpen }) => {
 							}}
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.3 }}
-							className="absolute top-0 left-0"
+							className="absolute"
 						>
-							<FontAwesomeIcon
-								icon={faPaw}
-								size="2x"
-								className="text-brand-primary"
-							/>
+							<Icon name="paw" size="lg" className="text-brand-accent" />
 						</motion.div>
 						<motion.div
 							initial={{ opacity: 0, rotate: -90 }}
@@ -83,15 +67,11 @@ const Navbar = ({ menuOpen, setMenuOpen }) => {
 							}}
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.3 }}
-							className="absolute top-0 left-[0.25rem]"
+							className="absolute"
 						>
-							<FontAwesomeIcon
-								icon={faXmark}
-								size="2x"
-								className="text-brand-primary"
-							/>
+							<Icon name="close" size="lg" className="text-brand-accent" />
 						</motion.div>
-					</div>
+					</button>
 				</div>
 			</div>
 		</div>
