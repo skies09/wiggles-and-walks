@@ -377,22 +377,29 @@ const Contact = () => {
 							/>
 						</div>
 
-						<div className="flex flex-col lg:flex-row gap-4 w-full">
-							<div className="flex flex-col w-full lg:w-1/2">
+						<div className="flex flex-col lg:flex-row gap-4 w-full min-w-0">
+							<div className="flex flex-col w-full min-w-0 lg:w-1/2">
 								<label className="text-sm text-neutral-800 font-body font-semibold mb-1 w-full text-left">
 									Preferred date
 								</label>
 								<p className="text-sm text-neutral-500 font-body mb-1 w-full text-left">
 									Optional. We'll confirm before anything is held.
 								</p>
-								<Field
-									className="date-field w-full h-12 rounded-brand mt-1 pl-4 pr-12 font-body border-2 border-neutral-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all"
-									type="date"
-									id="preferred_date"
-									name="preferred_date"
-								/>
+								<div className="relative mt-1 w-full min-w-0 overflow-hidden rounded-brand border-2 border-neutral-300 focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20 transition-all bg-white">
+									<Field
+										className="date-field relative h-12 w-full min-w-0 border-0 bg-transparent pl-4 pr-12 font-body focus:outline-none focus:ring-0"
+										type="date"
+										id="preferred_date"
+										name="preferred_date"
+									/>
+									<Icon
+										name="calendar"
+										size="sm"
+										className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500"
+									/>
+								</div>
 							</div>
-							<div className="flex flex-col w-full lg:w-1/2">
+							<div className="flex flex-col w-full min-w-0 lg:w-1/2">
 							<label className="text-sm text-neutral-800 font-body font-semibold mb-1 w-full text-left">
 								Preferred time
 							</label>
@@ -494,7 +501,7 @@ const Contact = () => {
 				</motion.div>
 
 				<motion.div
-					className="w-full bg-neutral-50 p-6 md:p-8 rounded-brand-xl shadow-brand-lg border border-neutral-200"
+					className="w-full min-w-0 overflow-hidden bg-neutral-50 p-5 sm:p-6 md:p-8 rounded-brand-xl shadow-brand-lg border border-neutral-200"
 					initial={{ opacity: 0, y: 50 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
